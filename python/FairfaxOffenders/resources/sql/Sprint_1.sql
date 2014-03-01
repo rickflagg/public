@@ -83,6 +83,25 @@ CREATE TABLE state_statutes
   CONSTRAINT fk_statutes_to_states FOREIGN KEY (state_id) REFERENCES offender_states
 );
 
+DROP TABLE IF EXISTS offences;
+DROP SEQUENCE IF EXISTS seq_offences;
+
+CREATE SEQUENCE seq_offences;
+
+CREATE TABLE offences
+(
+  id INT8 NOT NULL,
+  statute_id INT8 NOT NULL,
+  offence_date DATE NOT NULL,
+  offender_id INT8 NOT NULL,
+  area_id INT8 NOT NULL,
+  CONSTRAINT pk_offense PRIMARY KEY (id),
+  CONSTRAINT fk_offences_to_statutes FOREIGN KEY (statute_id) REFERENCES state_statutes(id),
+  CONSTRAINT fk_offences_to_offenders FOREIGN KEY (offender_id) REFERENCES offenders(id),
+  CONSTRAINT fk_offences_to_areas FOREIGN KEY (area_id) REFERENCES offender_area(id)
+);
+
+
 
 
 
