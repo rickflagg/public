@@ -55,7 +55,6 @@ class FairfaxCrimeParserService(object):
                 record["charge.statute"] = line[131: 156].strip()
                 record["charge.description"] = line[157:210].strip()
 
-                #'3138 GLEN CARLYN RD, FALLS CHURCH, VA 22041'
                 record["address"] = line[210:len(line)].strip().split(',')[0].strip()
 
                 geoCode = GeoCodeParserService().getGeoCodeByAddress(record['address'])
