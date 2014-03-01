@@ -1,4 +1,4 @@
-__author__ = 'rflagg'
+__author__ = 'Rick Flagg'
 
 import unittest
 from services import *
@@ -7,7 +7,6 @@ from services import *
 class FairfaxCrimeParserTests(unittest.TestCase):
 
     def testParse(self):
+        self.assertIsNotNone(FairfaxCrimeParserService().parse())
 
-        record = FairfaxCrimeParserService().parse()[0]
 
-        print record
