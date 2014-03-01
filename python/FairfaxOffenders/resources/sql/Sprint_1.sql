@@ -70,6 +70,25 @@ CREATE TABLE offenders
   CONSTRAINT pk_offenders PRIMARY KEY (id)
 );
 
+DROP TABLE IF EXISTS state_statutes;
+DROP SEQUENCE IF EXISTS seq_state_statutes;
+
+CREATE TABLE state_statutes
+(
+  id INT8 NOT NULL,
+  code VARCHAR(100) NOT NULL,
+  description TEXT NULL,
+  state_id INT8 NOT NULL,
+  CONSTRAINT pk_statutes PRIMARY KEY (id),
+  CONSTRAINT fk_statutes_to_states FOREIGN KEY (state_id) REFERENCES offender_states
+);
+
+
+
+
+
+
+
 
 
 
