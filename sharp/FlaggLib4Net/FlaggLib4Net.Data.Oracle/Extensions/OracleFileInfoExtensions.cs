@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlaggLib4Net.Data.Oracle.Extensions
 {
-    public static class DataReaderExtensions
+    public static class OracleFileInfoExtensions
     {
 
     }
