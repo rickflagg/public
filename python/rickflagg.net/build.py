@@ -21,7 +21,7 @@ class BuildProperties(object):
         self._props['run.development.sql'] = True
         self._props['dev.sql.host'] = 'localhost'
         self._props['dev.sql.database'] = 'rickflagg.net'
-        self._props['dev.sql.user'] = 'rickflagg.net_user'
+        self._props['dev.sql.user'] = 'rickflagg_user'
         self._props['dev.sql.password'] = 'V41Z<SX(960+d0|'
 
 
@@ -126,13 +126,13 @@ class ApplicationBuild(object):
         shutil.copyfile("static/style/site.css", os.path.join(self._prod_release_dir, "static/style/site.css"))
 
         #Robots.txt
-        shutil.copyfile("robots.txt", os.path.join(self._prod_release_dir, "robots.txt"))
+        shutil.copyfile("static/robots.txt", os.path.join(self._prod_release_dir, "robots.txt"))
 
         #jquery.pcarousel
         shutil.copyfile("static/js/jquery.pcarousel.js", os.path.join(self._prod_release_dir, "static/js/jquery.pcarousel.js"))
 
         #sitemap
-        shutil.copyfile("sitemap.xml", os.path.join(self._prod_release_dir, "sitemap.xml"))
+        shutil.copyfile("static/sitemap.xml", os.path.join(self._prod_release_dir, "sitemap.xml"))
 
 
     def perform_build(self):

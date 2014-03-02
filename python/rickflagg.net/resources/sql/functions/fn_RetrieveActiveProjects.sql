@@ -15,4 +15,4 @@ END
 $BODY$
 LANGUAGE plpgsql;
 
-ALTER FUNCTION fn_retrieve_active_projects(refcursor) OWNER TO banner;
+ALTER FUNCTION fn_retrieve_active_projects(refcursor) OWNER TO rickflagg_user;

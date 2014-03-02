@@ -23,4 +23,4 @@ AS
 $BODY$
 LANGUAGE plpgsql;
 
-ALTER FUNCTION fn_retrieve_project_client_organization(refcursor, projects.id%TYPE) OWNER TO banner;
+ALTER FUNCTION fn_retrieve_project_client_organization(refcursor, projects.id%TYPE) OWNER TO rickflagg_user;

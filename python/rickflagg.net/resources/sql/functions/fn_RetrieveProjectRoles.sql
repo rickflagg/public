@@ -25,4 +25,4 @@ AS
 $BODY$
 LANGUAGE plpgsql;
 
-ALTER FUNCTION fn_retrieve_project_roles(refcursor,projects.id%TYPE) OWNER TO banner;
+ALTER FUNCTION fn_retrieve_project_roles(refcursor,projects.id%TYPE) OWNER TO rickflagg_user;
