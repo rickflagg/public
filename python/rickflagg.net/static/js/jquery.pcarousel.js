@@ -241,12 +241,14 @@
                 var endLabel = null;
                 var returnLabel = "";
 
+                console.log(endDate);
+
                 if(startDate != undefined || startDate != null){
                     startDate = new Date(startDate);
                     startLabel = formatMonthName(startDate) + " " + startDate.getFullYear().toString();
                 }
 
-                if(endDate != undefined || endDate != null){
+                if(endDate != undefined  || endDate != null){
                     endDate = new Date(endDate);
                     endLabel = formatMonthName(endDate) + " " + endDate.getFullYear().toString();
                 }

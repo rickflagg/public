@@ -185,12 +185,10 @@ class ProjectRepository(BaseRepository):
 
         if record is not None:
 
-            return {
+            retval = {
                 "id": record[0],
                 "name": record[1],
                 "description": record[2],
-                "start_date": str(record[3]),
-                "end_date": str(record[4]),
                 "organization": OrganizationRepository().RetrieveServiceOrganizationByProject(record[0]),
                 "client": OrganizationRepository().RetrieveClientOrganizationByProject(record[0]),
                 "notable": record[7],
@@ -199,5 +197,14 @@ class ProjectRepository(BaseRepository):
                 "roles": RoleRepository().RetrieveRolesForProjects(record[0]),
                 "technologies": TechnologyRepository().RetrieveTechnologiesForProject(record[0])
             }
+
+            if record[3] is not None:
+                retval["start_date"] = str(record[3])
+
+            if record[4] is not None:
+                retval["end_date"] = str(record[4])
+
+            return retval
+
         else:
             return {}
