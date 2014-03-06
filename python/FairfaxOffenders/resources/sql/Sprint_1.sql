@@ -25,21 +25,21 @@ VALUES
   'Virginia'
 );
 
-DROP TABLE IF EXISTS offender_area CASCADE;
-DROP SEQUENCE IF EXISTS seq_offender_area;
+DROP TABLE IF EXISTS offender_areas CASCADE;
+DROP SEQUENCE IF EXISTS seq_offender_areas;
 
-CREATE TABLE offender_area
+CREATE TABLE offender_areas
 (
   id INT8 NOT NULL,
   state_id INT8 NOT NULL,
   county VARCHAR(100) NOT NULL,
-  CONSTRAINT pk_offender_area PRIMARY KEY (id),
-  CONSTRAINT fk_offender_area_to_state FOREIGN KEY(state_id) REFERENCES offender_states(id)
+  CONSTRAINT pk_offender_areass PRIMARY KEY (id),
+  CONSTRAINT fk_offender_areass_to_state FOREIGN KEY(state_id) REFERENCES offender_states(id)
 );
 
-CREATE SEQUENCE seq_offender_area;
+CREATE SEQUENCE seq_offender_areas;
 
-INSERT INTO offender_area
+INSERT INTO offender_areas
 (
   id,
   state_id,
@@ -47,7 +47,7 @@ INSERT INTO offender_area
 )
 values
 (
-  nextval('seq_offender_area'),
+  nextval('seq_offender_areas'),
   (SELECT id from  offender_states WHERE abbreviation= 'VA'),
   'Fairfax'
 );
@@ -70,6 +70,8 @@ CREATE TABLE offenders
   CONSTRAINT pk_offenders PRIMARY KEY (id)
 );
 
+CREATE SEQUENCE seq_offenders;
+
 DROP TABLE IF EXISTS state_statutes  CASCADE;
 DROP SEQUENCE IF EXISTS seq_state_statutes;
 
@@ -83,7 +85,9 @@ CREATE TABLE state_statutes
   CONSTRAINT fk_statutes_to_states FOREIGN KEY (state_id) REFERENCES offender_states
 );
 
-DROP TABLE IF EXISTS offences  CASCADE;
+CREATE SEQUENCE seq_state_statutes;
+
+DROP TABLE IF EXISTS offences CASCADE;
 DROP SEQUENCE IF EXISTS seq_offences;
 
 CREATE SEQUENCE seq_offences;
@@ -98,7 +102,7 @@ CREATE TABLE offences
   CONSTRAINT pk_offense PRIMARY KEY (id),
   CONSTRAINT fk_offences_to_statutes FOREIGN KEY (statute_id) REFERENCES state_statutes(id),
   CONSTRAINT fk_offences_to_offenders FOREIGN KEY (offender_id) REFERENCES offenders(id),
-  CONSTRAINT fk_offences_to_areas FOREIGN KEY (area_id) REFERENCES offender_area(id)
+  CONSTRAINT fk_offences_to_areas FOREIGN KEY (area_id) REFERENCES offender_areas(id)
 );
 
 CREATE OR REPLACE FUNCTION fn_save_offence
@@ -114,14 +118,17 @@ CREATE OR REPLACE FUNCTION fn_save_offence
    IN prmLatitude offenders.latitude%TYPE,
    IN prmLongitude offenders.longitude%TYPE,
    IN prmState offender_states.abbreviation%TYPE,
-   IN prmArea offender_area.county%TYPE
+   IN prmArea offender_areas.county%TYPE
 )
 RETURNS VOID
 AS
 $BODY$
 DECLARE
   state_id numeric;
-
+  area_id numeric;
+  statute_id numeric;
+  offender_id numeric;
+  offence_id numeric;
 BEGIN
   -- Check to see if the state exists
   SELECT id INTO state_id FROM offender_states WHERE abbreviation = prmState;
@@ -142,6 +149,114 @@ BEGIN
 
   END IF;
 
+  -- Check to see if the area exists
+  SELECT id INTO area_id FROM offender_areas WHERE county = prmArea;
+
+  IF area_id IS NULL THEN
+    
+    INSERT INTO offender_areas
+    (
+      id,
+      state_id,
+      county
+    )
+    VALUES
+    (
+      NEXTVAL('seq_offender_areas'),
+      state_id,
+      prmArea
+    );
+
+    area_id = CURRVAL('seq_offender_areas');
+
+  END IF;  
+
+  -- Check to see if the statute exists
+  SELECT id INTO statute_id FROM state_statutes WHERE code = prmChargeStatute
+  AND state_id = state_id;
+
+  IF statute_id IS NULL THEN
+
+    INSERT INTO state_statutes
+    (
+      id,
+      code,
+      description,
+      state_id
+    )
+    VALUES
+    (
+      NEXTVAL('seq_state_statutes'),
+      prmChargeStatute,
+      prmChargeDescription,
+      state_id
+    );
+
+    statute_id = CURRVAL("seq_state_statutes");
+
+  END IF;
+
+  -- Check the offender
+  SELECT id INTO offender_id FROM offenders WHERE first_name = prmFirstname AND
+      last_name = prmLastname and middle_name = prmMiddlename and address = prmAddress;
+
+  IF offender_id is null THEN
+
+    INSERT INTO offenders
+    (
+        id,
+        first_name,
+        last_name,
+        middle_name,
+        age,
+        address,
+        latitude,
+        longitude,
+        hidden
+    )
+    VALUES
+    (
+        NEXTVAL("seq_offenders"),
+        prmFirstname,
+        prmLastname,
+        prmMiddlename,
+        prmAge,
+        prmAddress,
+        prmLatitude,
+        prmLongitude,
+        false
+    );
+
+    offender_id = CURRVAL("seq_offenders");
+
+  END IF;
+
+  SELECT id INTO offender_id FROM offences WHERE area_id = area_id
+  AND offender_id = offender_id
+  AND statute_id = statute_id
+  AND offence_date = offence_date;
+
+  IF offender_id IS NULL THEN
+    INSERT INTO offences
+    (
+      id,
+      statute_id,
+      offence_date,
+      offender_id,
+      area_id
+    )
+    VALUES
+    (
+      NEXTVAL("seq_offences"),
+      statute_id,
+      prmDateArrested,
+      offender_id,
+      area_id
+    );
+
+  END IF;
+
+
 END
 
 $BODY$
@@ -160,7 +275,7 @@ ALTER FUNCTION fn_save_offence
    offenders.latitude%TYPE,
    offenders.longitude%TYPE,
    offender_states.abbreviation%TYPE,
-   offender_area.county%TYPE
+   offender_areas.county%TYPE
 ) OWNER TO criminal_offenders_user;
 
 
