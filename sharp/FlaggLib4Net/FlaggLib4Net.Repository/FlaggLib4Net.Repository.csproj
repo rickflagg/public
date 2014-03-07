@@ -44,7 +44,8 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Libraries\Json.Net\4.0\Newtonsoft.Json.dll" />
-    <Content Include="Libraries\Json.Net\4.5\Newtonsoft.Json.pdb" />
+    <Content Include="Libraries\Json.Net\4.5\Newtonsoft.Json.dll" />
+    <Content Include="Libraries\NUnit\nunit.framework.dll" />
     <Content Include="Libraries\OracleClient\Oracle.DataAccess.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
