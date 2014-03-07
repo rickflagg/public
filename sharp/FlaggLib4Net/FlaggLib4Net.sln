@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlaggLib4Net.Data.Oracle", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlaggLib4Net.Repository", "FlaggLib4Net.Repository\FlaggLib4Net.Repository.csproj", "{4837D157-BDA5-4522-8F7D-F5311182A0B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlaggLib4Net.Web", "FlaggLib4Net.Web\FlaggLib4Net.Web.csproj", "{9343E064-4595-480D-8666-B89E8A30F666}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlaggLib4Net.Tests", "FlaggLib4Net.Tests\FlaggLib4Net.Tests.csproj", "{91AF879E-214D-45D9-ACD2-CC7F052C4A80}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +22,14 @@ Global
 		{4837D157-BDA5-4522-8F7D-F5311182A0B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4837D157-BDA5-4522-8F7D-F5311182A0B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4837D157-BDA5-4522-8F7D-F5311182A0B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9343E064-4595-480D-8666-B89E8A30F666}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9343E064-4595-480D-8666-B89E8A30F666}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9343E064-4595-480D-8666-B89E8A30F666}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9343E064-4595-480D-8666-B89E8A30F666}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91AF879E-214D-45D9-ACD2-CC7F052C4A80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91AF879E-214D-45D9-ACD2-CC7F052C4A80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91AF879E-214D-45D9-ACD2-CC7F052C4A80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91AF879E-214D-45D9-ACD2-CC7F052C4A80}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
