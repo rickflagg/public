@@ -4,7 +4,7 @@ import psycopg2
 from utilities import *
 
 
-class BaseRepository(object):
+class BaseDao(object):
 
     def __init__(self):
         pass
@@ -13,10 +13,10 @@ class BaseRepository(object):
 
         config = ConfigurationManager()
 
-        host = config.readProperty('database', 'db.host')
-        database = config.readProperty('database', 'db.name')
-        user = config.readProperty('database', 'db.user')
-        password = config.readProperty('database', 'db.password')
+        host = config.read_property('database', 'db.host')
+        database = config.read_property('database', 'db.name')
+        user = config.read_property('database', 'db.user')
+        password = config.read_property('database', 'db.password')
 
         return "host='{0}' dbname='{1}' user='{2}' password='{3}'".format(host, database, user, password)
 
@@ -29,7 +29,7 @@ class BaseRepository(object):
 
         except psycopg2.DatabaseError, e:
 
-            return 'Error %s' % e
+            print 'Error %s' % e
 
     def execute_refcursor_function(self, procName, params=None):
 
@@ -50,7 +50,21 @@ class BaseRepository(object):
 
         cn = self.connection()
         cur = cn.cursor()
-        cur.callproc(procName, params)
+
+        try:
+
+            cur.callproc(procName, params)
+            cn.commit()
+
+        except psycopg2.DatabaseError, e:
+            print 'Error %s' % e
+        finally:
+
+            if cur is not None:
+                cur.close()
+
+            if cn is not None:
+                cn.close()
 
     def execute_result(self, sql, params=None):
 
@@ -105,19 +119,34 @@ class BaseRepository(object):
 
         retval = []
 
-        if dict.hasKeys():
+        if len(dict) > 0:
             for key, value in dict.iteritems():
                 retval.append(value)
 
         return retval
 
-class OffenceRepository(BaseRepository):
+class OffenceDao(BaseDao):
 
     def __init__(self):
-        super(BaseRepository, self).__init__()
+        super(OffenceDao, self).__init__()
 
     def save_offence(self, values={}):
+        if len(values):
 
-        if values.has_keys():
-            self.executeNoResultFunction("", self.dictionary_to_parameters(values) )
+            params = [
+                values["last.name"],
+                values["first.name"],
+                values["middle.name"],
+                values["age"],
+                values["date.arrested"],
+                values["charge.statute"],
+                values["charge.description"],
+                values["address"],
+                values["lat"],
+                values["lng"],
+                values["state"],
+                values["area"]
+            ]
+
+            self.execute_function("fn_save_offence", params)
 

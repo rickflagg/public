@@ -124,17 +124,21 @@ RETURNS VOID
 AS
 $BODY$
 DECLARE
-  state_id numeric;
-  area_id numeric;
-  statute_id numeric;
-  offender_id numeric;
-  offence_id numeric;
+  v_state_id numeric := null;
+  v_area_id numeric := null;
+  v_statute_id numeric := null;
+  v_offender_id numeric := null;
+  v_offence_id numeric := null;
 BEGIN
-  -- Check to see if the state exists
-  SELECT id INTO state_id FROM offender_states WHERE abbreviation = prmState;
 
-  IF state_id is null THEN
-    INSERT INTO offender_states
+  -- Check to see if the state exists
+  SELECT id INTO v_state_id FROM offender_states WHERE abbreviation = prmState;
+
+  IF v_state_id is null THEN
+
+    BEGIN
+
+      INSERT INTO offender_states
     (
       id,
       abbreviation
@@ -145,16 +149,23 @@ BEGIN
       prmState
     );
 
-    state_id = currval('seq_offender_states');
+      COMMIT;
 
+      v_state_id := currval('seq_offender_states');
+
+    EXCEPTION
+      WHEN OTHERS THEN
+    END;
   END IF;
 
   -- Check to see if the area exists
-  SELECT id INTO area_id FROM offender_areas WHERE county = prmArea;
+  SELECT id INTO v_area_id FROM offender_areas WHERE county = prmArea;
 
-  IF area_id IS NULL THEN
-    
-    INSERT INTO offender_areas
+  IF v_area_id IS NULL THEN
+
+    BEGIN
+
+      INSERT INTO offender_areas
     (
       id,
       state_id,
@@ -163,21 +174,26 @@ BEGIN
     VALUES
     (
       NEXTVAL('seq_offender_areas'),
-      state_id,
+      v_state_id,
       prmArea
     );
 
-    area_id = CURRVAL('seq_offender_areas');
+      COMMIT;
+
+      v_area_id := CURRVAL('seq_offender_areas');
+    EXCEPTION
+      WHEN OTHERS THEN
+    END;
 
   END IF;  
 
   -- Check to see if the statute exists
-  SELECT id INTO statute_id FROM state_statutes WHERE code = prmChargeStatute
-  AND state_id = state_id;
+  SELECT id INTO v_statute_id FROM state_statutes WHERE code = prmChargeStatute
+  AND state_id = v_state_id;
 
-  IF statute_id IS NULL THEN
+  IF v_statute_id IS NULL THEN
 
-    INSERT INTO state_statutes
+       INSERT INTO state_statutes
     (
       id,
       code,
@@ -189,20 +205,24 @@ BEGIN
       NEXTVAL('seq_state_statutes'),
       prmChargeStatute,
       prmChargeDescription,
-      state_id
+      v_state_id
     );
 
-    statute_id = CURRVAL("seq_state_statutes");
+
+    v_statute_id := CURRVAL('seq_state_statutes');
+
 
   END IF;
 
+
   -- Check the offender
-  SELECT id INTO offender_id FROM offenders WHERE first_name = prmFirstname AND
+
+  SELECT id INTO v_offender_id FROM offenders WHERE first_name = prmFirstname AND
       last_name = prmLastname and middle_name = prmMiddlename and address = prmAddress;
 
-  IF offender_id is null THEN
+  IF v_offender_id is null THEN
 
-    INSERT INTO offenders
+      INSERT INTO offenders
     (
         id,
         first_name,
@@ -216,7 +236,7 @@ BEGIN
     )
     VALUES
     (
-        NEXTVAL("seq_offenders"),
+        NEXTVAL('seq_offenders'),
         prmFirstname,
         prmLastname,
         prmMiddlename,
@@ -227,17 +247,18 @@ BEGIN
         false
     );
 
-    offender_id = CURRVAL("seq_offenders");
+      v_offender_id := CURRVAL('seq_offenders');
 
   END IF;
 
-  SELECT id INTO offender_id FROM offences WHERE area_id = area_id
-  AND offender_id = offender_id
-  AND statute_id = statute_id
-  AND offence_date = offence_date;
+  SELECT id INTO v_offence_id FROM offences WHERE area_id = v_area_id
+  AND offender_id = v_offender_id
+  AND statute_id = v_statute_id
+  AND offence_date = prmDateArrested;
 
-  IF offender_id IS NULL THEN
-    INSERT INTO offences
+  IF v_offence_id IS NULL THEN
+
+      INSERT INTO offences
     (
       id,
       statute_id,
@@ -247,17 +268,18 @@ BEGIN
     )
     VALUES
     (
-      NEXTVAL("seq_offences"),
-      statute_id,
+      NEXTVAL('seq_offences'),
+      v_statute_id,
       prmDateArrested,
-      offender_id,
-      area_id
+      v_offender_id,
+      v_area_id
     );
 
   END IF;
 
 
-END
+
+END;
 
 $BODY$
 LANGUAGE plpgsql;
