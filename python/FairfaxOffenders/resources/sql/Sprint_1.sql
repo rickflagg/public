@@ -300,9 +300,28 @@ ALTER FUNCTION fn_save_offence
    offender_areas.county%TYPE
 ) OWNER TO criminal_offenders_user;
 
+CREATE OR REPLACE FUNCTION fn_search_offenders
+(
 
+)
+RETURNS VOID
+AS
+$BODY$
 
+    BEGIN
 
+        /*
+        SELECT name, distance
+        FROM
+            ( SELECT name, ((ACOS(SIN(#{latitude} * PI() / 180) * SIN(u.latitude * PI() / 180) + COS(#{latitude} * PI() / 180) * COS(u.latitude * PI() / 180) * COS((#{longitude} - u.longitude) * PI() / 180)) * 180 / PI()) * 60 * 1.1515) as distance
+                FROM users u ) d
+                WHERE distance <= 5
+                ORDER BY distance ASC;
+        */
+    END;
+
+$BODY$
+LANGUAGE plpgsql;
 
 
 
