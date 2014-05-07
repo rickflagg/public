@@ -48,17 +48,23 @@
     <Compile Include="Tasks\Oracle\OracleCreateTableTask.cs" />
     <Compile Include="Tasks\Oracle\OracleCreateViewTask.cs" />
     <Compile Include="Tasks\Oracle\OracleRunInsertTask.cs" />
+    <Compile Include="Tasks\Postgresql\PostgresqlCreateFunctionTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FlaggLib4Net.Data.Oracle\FlaggLib4Net.Data.Oracle.csproj">
       <Project>{864856d8-5edd-41cf-9815-ee7e4fa30c48}</Project>
       <Name>FlaggLib4Net.Data.Oracle</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FlaggLib4Net.Data.Postgresql\FlaggLib4Net.Data.Postgresql.csproj">
+      <Project>{4ae50bf4-a0e9-4d3f-8052-31d6aae6f217}</Project>
+      <Name>FlaggLib4Net.Data.Postgresql</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FlaggLib4Net.IO\FlaggLib4Net.IO.csproj">
       <Project>{23d10630-96e9-4049-872b-7cc2e4973d08}</Project>
       <Name>FlaggLib4Net.IO</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
