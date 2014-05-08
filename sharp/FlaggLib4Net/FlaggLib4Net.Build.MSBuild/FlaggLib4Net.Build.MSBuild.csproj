@@ -49,6 +49,10 @@
     <Compile Include="Tasks\Oracle\OracleCreateViewTask.cs" />
     <Compile Include="Tasks\Oracle\OracleRunInsertTask.cs" />
     <Compile Include="Tasks\Postgresql\PostgresqlCreateFunctionTask.cs" />
+    <Compile Include="Tasks\Postgresql\PostgresqlCreateSequenceTask.cs" />
+    <Compile Include="Tasks\Postgresql\PostgresqlCreateTableTask.cs" />
+    <Compile Include="Tasks\Postgresql\PostgresqlCreateViewTask.cs" />
+    <Compile Include="Tasks\Postgresql\PostgresqlRunInsertTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FlaggLib4Net.Data.Oracle\FlaggLib4Net.Data.Oracle.csproj">
