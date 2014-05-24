@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlaggLib4Net.Build.MSBuild"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlaggLib4Net.IO", "FlaggLib4Net.IO\FlaggLib4Net.IO.csproj", "{23D10630-96E9-4049-872B-7CC2E4973D08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlaggLib4Net.WPF.Controls", "FlaggLib4Net.WPF.Controls\FlaggLib4Net.WPF.Controls.csproj", "{F46D540F-83AA-4618-A233-E66482A43CC1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{23D10630-96E9-4049-872B-7CC2E4973D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23D10630-96E9-4049-872B-7CC2E4973D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23D10630-96E9-4049-872B-7CC2E4973D08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F46D540F-83AA-4618-A233-E66482A43CC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F46D540F-83AA-4618-A233-E66482A43CC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F46D540F-83AA-4618-A233-E66482A43CC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F46D540F-83AA-4618-A233-E66482A43CC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
