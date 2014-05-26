@@ -16,9 +16,13 @@ namespace Homesite.Data
         public static void PopulateData()
         {
             IDesignPatternRepository designPatternRepo = new DesignPatternRepository();
+            IProgrammingLanguageRepository programmingLanguageRepo = new ProgrammingLanguageRepository();
 
             //Create the Design Patterns
             designPatternRepo.SaveAll(DataManager.CreateDesignPatterns());
+
+            //Create the Programming Languages
+            programmingLanguageRepo.SaveAll(DataManager.CreateProgrammingLanguages());
 
         }
 
@@ -32,6 +36,76 @@ namespace Homesite.Data
                 designPatternRepo.Delete(pattern);
             }
 
+        }
+
+        private static IList<IProgrammingToolkit> CreateProgrammingToolkits()
+        {
+            IList<IProgrammingToolkit> retval = new List<IProgrammingToolkit>();
+
+            retval.Add(new
+                ProgrammingToolkit()
+                {
+                   Name = "Windows Presentation Foundation",
+                   Active = true,
+                   DateCreated = DateTime.Now,
+                   ReferenceUrl = "http://msdn.microsoft.com/en-us/library/ms754130(v=vs.110).aspx"
+                }
+            );
+
+
+
+            return retval;
+        }
+
+        private static IList<IProgrammingLanguage> CreateProgrammingLanguages()
+        {
+            IList<IProgrammingLanguage> retval = new List<IProgrammingLanguage>();
+
+            retval.Add
+                (
+                    new ProgrammingLanguage()
+                    {
+                        Name = "C#",
+                        Active = true,
+                        DateCreated = DateTime.Now,
+                        ReferenceUrl = "http://msdn.microsoft.com/en-us/library/618ayhy6.aspx"
+                    }
+                );
+
+            retval.Add
+                (
+                    new ProgrammingLanguage()
+                    {
+                        Name = "Java",
+                        Active = true,
+                        DateCreated = DateTime.Now,
+                        ReferenceUrl = "http://docs.oracle.com/javase/7/docs/api/"
+                    }
+                );
+
+            retval.Add
+                (
+                    new ProgrammingLanguage()
+                    {
+                        Name = "Python",
+                        Active = true,
+                        DateCreated = DateTime.Now,
+                        ReferenceUrl = "https://docs.python.org/3/library/"
+                    }
+                );
+
+            retval.Add
+                (
+                    new ProgrammingLanguage()
+                    {
+                        Name = "Javascript",
+                        Active = true,
+                        DateCreated = DateTime.Now,
+                        ReferenceUrl = "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+                    }
+                );
+
+            return retval;
         }
 
         private static IList<IDesignPattern> CreateDesignPatterns()

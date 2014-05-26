@@ -57,6 +57,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Data\Repositories\DesignPatternRepositoryTests.cs" />
+    <Compile Include="Data\Repositories\ProgrammingLanguageRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

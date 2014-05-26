@@ -7,10 +7,11 @@ using Homesite.Data;
 using Homesite.Data.Entities;
 using Homesite.Data.Repositories;
 
+
 namespace Homesite.Tests.Data.Repositories
 {
     [TestClass]
-    public class DesignPatternRepositoryTests
+    public class ProgrammingLanguageRepositoryTests
     {
         [TestInitialize]
         public void InitializeDatabase()
@@ -24,10 +25,11 @@ namespace Homesite.Tests.Data.Repositories
             DataManager.RemoveData();
         }
 
+
         [TestMethod]
         public void TestPersistence()
         {
-            IDesignPatternRepository repo = new DesignPatternRepository();
+            IProgrammingLanguageRepository repo = new ProgrammingLanguageRepository();
 
             Assert.IsTrue(repo.GetActive().Count > 0);
             Assert.IsTrue(repo.GetAll().Count > 0);

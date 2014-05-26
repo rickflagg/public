@@ -65,12 +65,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataManager.cs" />
+    <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\DesignPattern.cs" />
     <Compile Include="Entities\ProgrammingLanguage.cs" />
+    <Compile Include="Entities\ProgrammingToolkit.cs" />
     <Compile Include="Mappings\DesignPatternMap.cs" />
+    <Compile Include="Mappings\ProgrammingLanguageMap.cs" />
+    <Compile Include="Mappings\ProgrammingToolkitMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\DesignPatternRepository.cs" />
+    <Compile Include="Repositories\ProgrammingLanguageRepository.cs" />
+    <Compile Include="Repositories\ProgrammingToolkitRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

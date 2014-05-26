@@ -8,8 +8,8 @@ using Homesite.Contracts.Data.Entities;
 
 namespace Homesite.Data.Entities
 {
-    public class ProgrammingLanguage: BaseEntity, IProgrammingLanguage
+    public class ProgrammingToolkit: BaseEntity, IProgrammingToolkit
     {
-        public virtual string ReferenceUrl { get; set; }
+        public virtual String ReferenceUrl { get; set; }
     }
 }
