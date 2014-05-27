@@ -52,6 +52,28 @@ namespace Homesite.Data
                 }
             );
 
+            retval.Add(new
+                ProgrammingToolkit()
+            {
+                Name = "Nancy",
+                Active = true,
+                DateCreated = DateTime.Now,
+                ReferenceUrl = "http://nancyfx.org/"
+            }
+            );
+
+
+            retval.Add(new
+                ProgrammingToolkit()
+            {
+                Name = "Log4Net",
+                Active = true,
+                DateCreated = DateTime.Now,
+                ReferenceUrl = "http://logging.apache.org/log4net/"
+            }
+            );
+
+
 
 
             return retval;
