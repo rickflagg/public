@@ -17,12 +17,16 @@ namespace Homesite.Data
         {
             IDesignPatternRepository designPatternRepo = new DesignPatternRepository();
             IProgrammingLanguageRepository programmingLanguageRepo = new ProgrammingLanguageRepository();
+            IProgrammingToolkitRepository programmingToolkitRepository = new ProgrammingToolkitRepository();
 
             //Create the Design Patterns
             designPatternRepo.SaveAll(DataManager.CreateDesignPatterns());
 
             //Create the Programming Languages
             programmingLanguageRepo.SaveAll(DataManager.CreateProgrammingLanguages());
+
+            //Create the Programming Toolkits
+            programmingToolkitRepository.SaveAll(DataManager.CreateProgrammingToolkits());
 
         }
 

@@ -37,9 +37,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Data\Entities\IBaseEntitiy.cs" />
+    <Compile Include="Data\Entities\IDatabasePlatform.cs" />
     <Compile Include="Data\Entities\IDesignPattern.cs" />
     <Compile Include="Data\Entities\IProgrammingToolkit.cs" />
     <Compile Include="Data\Entities\IProgrammingLanguage.cs" />
+    <Compile Include="Data\Repository\IDatabasePlatformRepository.cs" />
     <Compile Include="Data\Repository\IDesignPatternRepository.cs" />
     <Compile Include="Data\Repository\IProgrammingLanguageRepository.cs" />
     <Compile Include="Data\Repository\IProgrammingToolkitRepository.cs" />
