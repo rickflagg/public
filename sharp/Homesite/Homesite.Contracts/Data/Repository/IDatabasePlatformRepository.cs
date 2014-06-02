@@ -13,6 +13,7 @@ namespace Homesite.Contracts.Data.Repository
         void Save(IDatabasePlatform entity);
         void SaveAll(IList<IDatabasePlatform> entities);
         void Delete(IDatabasePlatform entity);
+        void DeleteAll(IList<IDatabasePlatform> entities);
         IList<IDatabasePlatform> GetActive();
         IList<IDatabasePlatform> GetAll();
     }

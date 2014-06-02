@@ -5,8 +5,8 @@ using System.Text;
 
 namespace Homesite.Contracts.Data.Entities
 {
-    public interface IDatabasePlatform: IBaseEntitiy
+    public interface IRole: IBaseEntitiy
     {
-        String ReferenceUrl { get; set; }
+
     }
 }

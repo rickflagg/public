@@ -36,5 +36,11 @@ namespace Homesite.Data.Repositories
         {
             return base.GetAll<IProgrammingToolkit>();
         }
+
+
+        public void DeleteAll(IList<IProgrammingToolkit> entities)
+        {
+            base.DeleteAll<IProgrammingToolkit>(entities);
+        }
     }
 }

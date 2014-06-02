@@ -37,14 +37,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Data\Entities\IBaseEntitiy.cs" />
+    <Compile Include="Data\Entities\IClient.cs" />
     <Compile Include="Data\Entities\IDatabasePlatform.cs" />
     <Compile Include="Data\Entities\IDesignPattern.cs" />
     <Compile Include="Data\Entities\IProgrammingToolkit.cs" />
     <Compile Include="Data\Entities\IProgrammingLanguage.cs" />
+    <Compile Include="Data\Entities\IProject.cs" />
+    <Compile Include="Data\Entities\IRole.cs" />
+    <Compile Include="Data\Entities\IRoleEntity.cs" />
+    <Compile Include="Data\Entities\ISoftwareLifecycle.cs" />
+    <Compile Include="Data\Repository\IClientRepository.cs" />
     <Compile Include="Data\Repository\IDatabasePlatformRepository.cs" />
     <Compile Include="Data\Repository\IDesignPatternRepository.cs" />
     <Compile Include="Data\Repository\IProgrammingLanguageRepository.cs" />
     <Compile Include="Data\Repository\IProgrammingToolkitRepository.cs" />
+    <Compile Include="Data\Repository\IRoleRepository.cs" />
+    <Compile Include="Data\Repository\ISoftwareLifecycleRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

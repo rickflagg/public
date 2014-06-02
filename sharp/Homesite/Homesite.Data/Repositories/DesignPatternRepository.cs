@@ -36,5 +36,11 @@ namespace Homesite.Data.Repositories
         {
             return base.GetAll<IDesignPattern>();
         }
+
+
+        public void DeleteAll(IList<IDesignPattern> entities)
+        {
+            base.DeleteAll<IDesignPattern>(entities);
+        }
     }
 }

@@ -59,6 +59,9 @@
     <Compile Include="Data\Repositories\DesignPatternRepositoryTests.cs" />
     <Compile Include="Data\Repositories\ProgrammingLanguageRepositoryTests.cs" />
     <Compile Include="Data\Repositories\ProgrammingToolkitRepositoryTests.cs" />
+    <Compile Include="Data\Repositories\DatabasePlatformRepositoryTests.cs" />
+    <Compile Include="Data\Repositories\SoftwareLifecycleRepositoryTests.cs" />
+    <Compile Include="Data\Repositories\RoleRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

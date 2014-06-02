@@ -85,6 +85,17 @@ namespace Homesite.Data.Repositories
             }
         }
 
+        protected void DeleteAll<T>(IList<T> entities)
+        {
+            if (entities != null && entities.Count > 0)
+            {
+                foreach (T entity in entities)
+                {
+                    this.Delete<T>(entity);
+                }
+            }
+        }
+
         protected ISession GetSession()
         {
             return Fluently.Configure()

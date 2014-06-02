@@ -12,6 +12,7 @@ namespace Homesite.Contracts.Data.Repository
         void Save(IProgrammingToolkit entity);
         void SaveAll(IList<IProgrammingToolkit> entities);
         void Delete(IProgrammingToolkit entity);
+        void DeleteAll(IList<IProgrammingToolkit> entities);
         IList<IProgrammingToolkit> GetActive();
         IList<IProgrammingToolkit> GetAll();
     }

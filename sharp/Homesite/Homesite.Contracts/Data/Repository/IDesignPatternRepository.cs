@@ -12,6 +12,7 @@ namespace Homesite.Contracts.Data.Repository
         void Save(IDesignPattern entity);
         void SaveAll(IList<IDesignPattern> entities);
         void Delete(IDesignPattern entity);
+        void DeleteAll(IList<IDesignPattern> entities);
         IList<IDesignPattern> GetActive();
         IList<IDesignPattern> GetAll();
     }
