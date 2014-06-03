@@ -69,6 +69,7 @@
     <Compile Include="Entities\Client.cs" />
     <Compile Include="Entities\DatabasePlatform.cs" />
     <Compile Include="Entities\DesignPattern.cs" />
+    <Compile Include="Entities\Project.cs" />
     <Compile Include="Entities\ProgrammingLanguage.cs" />
     <Compile Include="Entities\ProgrammingToolkit.cs" />
     <Compile Include="Entities\Role.cs" />

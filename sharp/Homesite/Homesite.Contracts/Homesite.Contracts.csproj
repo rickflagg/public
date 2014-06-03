@@ -53,6 +53,7 @@
     <Compile Include="Data\Repository\IProgrammingToolkitRepository.cs" />
     <Compile Include="Data\Repository\IRoleRepository.cs" />
     <Compile Include="Data\Repository\ISoftwareLifecycleRepository.cs" />
+    <Compile Include="Data\Repository\IProjectRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

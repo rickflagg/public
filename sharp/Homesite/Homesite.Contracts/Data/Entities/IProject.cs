@@ -10,6 +10,11 @@ namespace Homesite.Contracts.Data.Entities
         DateTime? StartDate { get; set; }
         DateTime? EndDate { get; set; }
         IClient Client { get; set; }
-
+        IList<IRole> Roles { get; set; }
+        IList<IDatabasePlatform> DatabasePlatforms { get; set; }
+        IList<IDesignPattern> DesignPatterns { get; set; }
+        IList<IProgrammingLanguage> ProgrammingLanguages { get; set; }
+        IList<IProgrammingToolkit> ProgrammingToolkits { get; set; }
+        ISoftwareLifecycle SoftwareLifecycle { get; set; } 
     }
 }
