@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homesite.Web", "Homesite.Web\Homesite.Web.csproj", "{ED638DD5-E755-4B7A-940D-5C94AB425686}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homesite.Repository", "Homesite.Repository\Homesite.Repository.csproj", "{867346C6-812A-4D96-8BA4-56634F71EDF2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homesite.Contracts", "Homesite.Contracts\Homesite.Contracts.csproj", "{433D0A3C-5A6E-48B6-A795-E76964AE36BB}"
@@ -17,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{ED638DD5-E755-4B7A-940D-5C94AB425686}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ED638DD5-E755-4B7A-940D-5C94AB425686}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ED638DD5-E755-4B7A-940D-5C94AB425686}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ED638DD5-E755-4B7A-940D-5C94AB425686}.Release|Any CPU.Build.0 = Release|Any CPU
 		{867346C6-812A-4D96-8BA4-56634F71EDF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{867346C6-812A-4D96-8BA4-56634F71EDF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{867346C6-812A-4D96-8BA4-56634F71EDF2}.Release|Any CPU.Build.0 = Release|Any CPU
