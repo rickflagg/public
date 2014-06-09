@@ -8,7 +8,7 @@ using Homesite.Contracts.Data.Entities;
 
 namespace Homesite.Data.Entities
 {
-    public class Project: BaseEntity ,Project
+    public class Project: BaseEntity , IProject
     {
 
         public virtual DateTime? StartDate { get; set; }
@@ -27,6 +27,7 @@ namespace Homesite.Data.Entities
             this.DatabasePlatforms = new List<IDatabasePlatform>();
             this.DesignPatterns = new List<IDesignPattern>();
             this.ProgrammingLanguages = new List<IProgrammingLanguage>();
+            this.ProgrammingToolkits = new List<IProgrammingToolkit>();
         }
 
     }

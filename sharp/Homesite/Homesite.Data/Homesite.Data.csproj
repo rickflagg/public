@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Homesite.Data</RootNamespace>
     <AssemblyName>Homesite.Data</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -79,6 +80,7 @@
     <Compile Include="Mappings\DesignPatternMap.cs" />
     <Compile Include="Mappings\ProgrammingLanguageMap.cs" />
     <Compile Include="Mappings\ProgrammingToolkitMap.cs" />
+    <Compile Include="Mappings\ProjectMap.cs" />
     <Compile Include="Mappings\RoleMap.cs" />
     <Compile Include="Mappings\SoftwareLifecycleMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,11 +90,11 @@
     <Compile Include="Repositories\DesignPatternRepository.cs" />
     <Compile Include="Repositories\ProgrammingLanguageRepository.cs" />
     <Compile Include="Repositories\ProgrammingToolkitRepository.cs" />
+    <Compile Include="Repositories\ProjectRepository.cs" />
     <Compile Include="Repositories\RoleRepository.cs" />
     <Compile Include="Repositories\SoftwareLifecycleRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

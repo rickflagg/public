@@ -22,6 +22,7 @@ namespace Homesite.Data
             ISoftwareLifecycleRepository lifecycleRepo = new SoftwareLifecycleRepository();
             IRoleRepository roleRepo = new RoleRepository();
             IClientRepository clientRepo = new ClientRepository();
+            IProjectRepository projectRepo = new ProjectRepository();
 
             //Create the Design Patterns
             designPatternRepo.SaveAll(DataManager.CreateDesignPatterns());
@@ -44,6 +45,9 @@ namespace Homesite.Data
             //Create the Clients
             clientRepo.SaveAll(DataManager.CreateClients());
 
+            //Create the projects
+            projectRepo.SaveAll(DataManager.CreateProjects());
+
         }
 
         public static void RemoveData()
@@ -55,7 +59,10 @@ namespace Homesite.Data
             ISoftwareLifecycleRepository lifecycleRepo = new SoftwareLifecycleRepository();
             IRoleRepository roleRepo = new RoleRepository();
             IClientRepository clientRepo = new ClientRepository();
+            IProjectRepository projectRepo = new ProjectRepository();
 
+            //Remove the projects
+            projectRepo.DeleteAll(projectRepo.GetAll());
             //Remove the design patterns
             designPatternRepo.DeleteAll(designPatternRepo.GetAll());
             //Remove the programming languages
@@ -70,6 +77,100 @@ namespace Homesite.Data
             roleRepo.DeleteAll(roleRepo.GetAll());
             //Remove the clients
             clientRepo.DeleteAll(clientRepo.GetAll());
+        }
+
+        private static IList<IProject> CreateProjects()
+        {
+            IDesignPatternRepository designPatternRepo = new DesignPatternRepository();
+            IProgrammingLanguageRepository programmingLanguageRepo = new ProgrammingLanguageRepository();
+            IProgrammingToolkitRepository programmingToolkitRepo = new ProgrammingToolkitRepository();
+            IDatabasePlatformRepository databaseRepo = new DatabasePlatformRepository();
+            ISoftwareLifecycleRepository lifecycleRepo = new SoftwareLifecycleRepository();
+            IRoleRepository roleRepo = new RoleRepository();
+            IClientRepository clientRepo = new ClientRepository();
+
+
+            IList<IProject> retval = new List<IProject>();
+
+            int targetIndex = 0;
+
+            retval.Add(
+                new Project()
+                {
+                    Active = true,
+                    Name = "Personal Site",
+                    StartDate = new DateTime(2013, 8,15),
+                }
+            );
+
+            //Add the client
+            retval[targetIndex].Client = clientRepo.GetAll()
+                .Where(x => x.Name.Equals("banner consulting", StringComparison.InvariantCultureIgnoreCase))
+                .FirstOrDefault();
+                
+            //Add the database platforms
+            retval[targetIndex].DatabasePlatforms.Add
+                (
+                    databaseRepo.GetAll()
+                    .Where(x => x.Name.Equals("postgresql", StringComparison.InvariantCultureIgnoreCase))
+                    .FirstOrDefault()                
+                );
+
+            //Add the Design Patterns
+            retval[targetIndex].DesignPatterns.Add
+                (
+                    designPatternRepo.GetAll()
+                    .Where(x => x.Name.Equals("Model View Controller", StringComparison.InvariantCultureIgnoreCase))
+                    .FirstOrDefault()
+                );
+
+            retval[targetIndex].DesignPatterns.Add
+                (
+                    designPatternRepo.GetAll()
+                    .Where(x => x.Name.Equals("Service Layer", StringComparison.InvariantCultureIgnoreCase))
+                    .FirstOrDefault()
+                );
+
+            //Add the Programming Languages
+            retval[targetIndex].ProgrammingLanguages.Add
+                (
+                    programmingLanguageRepo.GetAll()
+                    .Where(x => x.Name.Equals("C#", StringComparison.InvariantCultureIgnoreCase))
+                    .FirstOrDefault()
+                        
+                );
+
+            retval[targetIndex].ProgrammingLanguages.Add
+                (
+                    programmingLanguageRepo.GetAll()
+                    .Where(x => x.Name.Equals("javascript", StringComparison.InvariantCultureIgnoreCase))
+                    .FirstOrDefault()
+
+                );
+
+            //add the programming toolkits
+            retval[targetIndex].ProgrammingToolkits.Add
+                (
+                    programmingToolkitRepo.GetAll()
+                    .Where(x => x.Name.Equals("nancy", StringComparison.InvariantCultureIgnoreCase))
+                    .FirstOrDefault()
+
+                );
+
+            //add the roles
+            retval[targetIndex].Roles.Add
+                (
+                    roleRepo.GetAll()
+                    .Where(x => x.Name.Equals("Software Developer", StringComparison.InvariantCultureIgnoreCase))
+                    .FirstOrDefault()
+                );
+
+            //add the software lifecycle
+            retval[targetIndex].SoftwareLifecycle = lifecycleRepo.GetAll()
+                .Where(x => x.Name.Equals("Agile"))
+                .FirstOrDefault();
+
+            return retval;
         }
 
         private static IList<IClient> CreateClients()
@@ -561,6 +662,34 @@ namespace Homesite.Data
             );
 
             return retval;
+        }
+
+        public static bool IsDatabasePopulated
+        {
+            get
+            {
+                IDesignPatternRepository designPatternRepo = new DesignPatternRepository();
+                IProgrammingLanguageRepository programmingLanguageRepo = new ProgrammingLanguageRepository();
+                IProgrammingToolkitRepository programmingToolkitRepo = new ProgrammingToolkitRepository();
+                IDatabasePlatformRepository databaseRepo = new DatabasePlatformRepository();
+                ISoftwareLifecycleRepository lifecycleRepo = new SoftwareLifecycleRepository();
+                IRoleRepository roleRepo = new RoleRepository();
+                IClientRepository clientRepo = new ClientRepository();
+                IProjectRepository projectRepo = new ProjectRepository();
+
+                return
+                (
+                    designPatternRepo.GetAll().Count > 0 ||
+                    programmingLanguageRepo.GetAll().Count > 0 ||
+                    programmingToolkitRepo.GetAll().Count > 0 ||
+                    databaseRepo.GetAll().Count > 0 ||
+                    lifecycleRepo.GetAll().Count > 0 ||
+                    roleRepo.GetAll().Count > 0 ||
+                    clientRepo.GetAll().Count > 0 ||
+                    projectRepo.GetAll().Count > 0
+                );
+
+            }
         }
 
     }
