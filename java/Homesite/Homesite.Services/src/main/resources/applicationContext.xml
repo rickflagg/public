@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       xmlns:util="http://www.springframework.org/schema/util/spring-util-3.2.xsd"
+        >
+
+
+    <!-- Pull in the properties file -->
+    <!--
+    <context:property-placeholder location="classpath:application.properties" />
+    -->
+
+    <!-- we can use annotations -->
+    <context:annotation-config />
+
+    <!-- package to look for annotated classes -->
+    <context:component-scan base-package="net.rickflagg" />
+
+    <tx:annotation-driven transaction-manager="txManager"/>
+
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:database.properties</value>
+                <value>classpath:application.properties</value>
+            </list>
+        </property>
+        <property name="ignoreUnresolvablePlaceholders" value="false" />
+    </bean>
+
+
+    <bean id="dataSource"
+            class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${database.driverClassName}" />
+        <property name="url" value="${database.url}" />
+        <property name="username" value="${database.username}" />
+        <property name="password" value="${database.password}" />
+
+    </bean>
+
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+
+
+    <!-- Repositories -->
+
+    <!--
+    <bean id="applicationLogRepository" class="net.rickflagg.data.postgresql.repositories.ApplicationLogRepository">
+    </bean>
+
+
+    <bean id="clientRepository" class="net.rickflagg.data.postgresql.repositories.ClientRepository"></bean>
+
+    <bean id="databasePlatformRepository" class="net.rickflagg.data.postgresql.repositories.DatabasePlatformRepository"></bean>
+
+    <bean id="designPatternRepository" class="net.rickflagg.data.postgresql.repositories.DesignPatternRepository"></bean>
+
+    <bean id="linkCategoryRepository" class="net.rickflagg.data.postgresql.repositories.LinkCategoryRepository"></bean>
+
+    <bean id="linkRepository" class="net.rickflagg.data.postgresql.repositories.LinkRepository"></bean>
+
+    <bean id="programmingLanguageRepository" class="net.rickflagg.data.postgresql.repositories.ProgrammingLanguageRepository"></bean>
+
+    <bean id="programmingToolKitRepository" class="net.rickflagg.data.postgresql.repositories.ProgrammingToolKitRepository"></bean>
+
+    <bean id="projectRepository" class="net.rickflagg.data.postgresql.repositories.ProjectRepository"></bean>
+
+    <bean id="roleRepository" class="net.rickflagg.data.postgresql.repositories.RoleRepository"></bean>
+
+    <bean id="serviceTokenRepository" class="net.rickflagg.data.postgresql.repositories.ServiceTokenRepository"></bean>
+
+    <bean id="skillMatrixCategoryRepository" class="net.rickflagg.data.postgresql.repositories.SkillMatrixCategoryRepository"></bean>
+
+    <bean id="skillMatrixRepository" class="net.rickflagg.data.postgresql.repositories.SkillMatrixRepository"></bean>
+
+    <bean id="softwareLifecycleRepository" class="net.rickflagg.data.postgresql.repositories.SoftwareLifecycleRepository"></bean>
+
+     -->
+
+</beans>

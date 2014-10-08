@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>Homesite</groupId>
+    <artifactId>Homesite</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <spring.version>4.0.5.RELEASE</spring.version>
+        <logback.version>1.0.13</logback.version>
+        <jcloverslf4j.version>1.7.5</jcloverslf4j.version>
+        <sql.base.dir>${project.basedir}/Repository/SQL/</sql.base.dir>
+        <sql.schema.dir>${sql.base.dir}/Schema</sql.schema.dir>
+        <sql.inserts.dir>${sql.base.dir}/Inserts</sql.inserts.dir>
+        <sql.functions.dir>${sql.base.dir}/Functions/</sql.functions.dir>
+    </properties>
+
+    <modules>
+        <module>Homesite.Data</module>
+        <module>Homesite.Common</module>
+        <module>Homesite.Services</module>
+        <module>Homesite.Web</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.2</version>
+            <scope>test</scope>
+        </dependency>
+
+
+
+    </dependencies>
+
+    <build>
+        <finalName>Homesite</finalName>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>sql-maven-plugin</artifactId>
+                    <version>1.5</version>
+
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>sql-maven-plugin</artifactId>
+                <version>1.5</version>
+
+                <dependencies>
+                    <!-- specify the dependent JDBC driver here -->
+                    <dependency>
+                        <groupId>postgresql</groupId>
+                        <artifactId>postgresql</artifactId>
+                        <version>9.1-901.jdbc4</version>
+                    </dependency>
+                </dependencies>
+
+                <!-- common configuration shared by all executions -->
+                <configuration>
+                    <driver>org.postgresql.Driver</driver>
+                    <url>jdbc:postgresql://localhost/homesite</url>
+                    <username>homesite</username>
+                    <password>homesite</password>
+                    <skip>false</skip>
+                    <forceMojoExecution>true</forceMojoExecution>
+                </configuration>
+
+                <executions>
+
+                    <!-- Run the Schema -->
+                    <execution>
+                        <id>generate.schema</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+
+                        <configuration>
+                            <autocommit>true</autocommit>
+                            <fileset>
+                                <basedir>${sql.schema.dir}</basedir>
+                                <includes>
+                                    <include>schema.sql</include>
+                                </includes>
+                            </fileset>
+                        </configuration>
+
+                    </execution>
+
+                    <!-- Run the Inserts -->
+                    <execution>
+                        <id>generate.inserts</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+
+                        <configuration>
+                            <autocommit>true</autocommit>
+                            <srcFiles>
+                                <srcFile>${sql.inserts.dir}/DatabasePlatforms.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/ServiceTokens.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/ProgrammingLanguages.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/ProgrammingToolKits.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/Roles.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/SoftwareLifecycles.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/LinkCategories.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/Links.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/Clients.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/DesignPatterns.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/Projects/Homesite.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/Projects/IMS.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/Projects/Processing.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/SkillMatrixCategories.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/SkillMatrix.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/ApplicationLogs.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/ContentTypes.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/GlobalContent.sql</srcFile>
+                            </srcFiles>
+
+                        </configuration>
+
+                    </execution>
+
+                    <!-- Run the Functions -->
+                    <execution>
+                        <id>generate.functions</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+
+                        <configuration>
+                            <autocommit>true</autocommit>
+                            <delimiter>row</delimiter>
+                            <fileset>
+                                <basedir>${sql.functions.dir}</basedir>
+                                <includes>
+                                    <include>DatabasePlatforms/*.sql</include>
+                                    <include>ServiceTokens/*.sql</include>
+                                    <include>ProgrammingLanguages/*.sql</include>
+                                    <include>ProgrammingToolKits/*.sql</include>
+                                    <include>Roles/*.sql</include>
+                                    <include>SoftwareLifecycles/*.sql</include>
+                                    <include>LinkCategories/*.sql</include>
+                                    <include>Links/*.sql</include>
+                                    <include>Clients/*.sql</include>
+                                    <include>DesignPatterns/*.sql</include>
+                                    <include>Projects/*.sql</include>
+                                    <include>SkillMatrix/*.sql</include>
+                                    <include>SkillMatrixCategories/*.sql</include>
+                                    <include>ApplicationLogs/*.sql</include>
+                                    <include>ContentTypes/*.sql</include>
+                                    <include>GlobalContent/*.sql</include>
+                                </includes>
+                            </fileset>
+                        </configuration>
+
+                    </execution>
+
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<dataset>
+    <databasePlatform id="1", name="Postgresql", active=true, referenceUrl="http://www.postgresql.org/" />
+    <databasePlatform id="2", name="Oracle", active=true, referenceUrl="http://www.oracle.com/index.html" />
+    <databasePlatform id="3", name="SQL Server", active=true, referenceUrl="https://www.microsoft.com/en-us/server-cloud/products/sql-server/" />
+</dataset>

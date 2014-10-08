@@ -1,0 +1,22 @@
+INSERT INTO service_tokens
+(
+    name,
+    key1,
+    key2,
+    key3,
+    key4,
+    active,
+    date_created,
+    date_modified
+)
+VALUES
+(
+    'rickflagg',
+    'E0C7BB7A81799CA4CAF450026A272071',
+    '1E27F2C6C09AE396BFC80EC7A0DEC28E',
+    '9EEF1001686B3DB9F06A508C09C4F3E6',
+    '2154C9966EE6F887AD16E956BEABB0E6',
+    true,
+    current_timestamp,
+    current_timestamp
+);
