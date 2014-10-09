@@ -30,6 +30,8 @@ public class Project extends BaseEntity implements IEntity {
     private List<ProgrammingToolKit> programmingToolKits;
     private List<DesignPattern> designPatterns;
 
+    private String gitUrl;
+
     public Project(){
         this.roles = new ArrayList<Role>();
         this.programmingLanguages = new ArrayList<ProgrammingLanguage>();
@@ -115,6 +117,14 @@ public class Project extends BaseEntity implements IEntity {
 
     public void setDesignPatterns(List<DesignPattern> designPatterns) {
         this.designPatterns = designPatterns;
+    }
+
+    public String getGitUrl() {
+        return gitUrl;
+    }
+
+    public void setGitUrl(String gitUrl) {
+        this.gitUrl = gitUrl;
     }
 
     public String getFormattedProjectTimeSpan(){

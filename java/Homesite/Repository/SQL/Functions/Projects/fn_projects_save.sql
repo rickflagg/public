@@ -7,7 +7,8 @@ CREATE OR REPLACE FUNCTION fn_projects_save(
   IN projects.end_date%TYPE,
   IN projects.description%TYPE,
   IN projects.database_platform_id%TYPE,
-  IN projects.software_lifecycle_id%TYPE
+  IN projects.software_lifecycle_id%TYPE,
+  IN projects.git_url%TYPE
 
 
 )
@@ -31,7 +32,8 @@ CREATE OR REPLACE FUNCTION fn_projects_save(
                 end_date,
                 description,
                 database_platform_id,
-                software_lifecycle_id
+                software_lifecycle_id,
+                git_url
             )
             VALUES
             (
@@ -44,7 +46,8 @@ CREATE OR REPLACE FUNCTION fn_projects_save(
                 $6,
                 $7,
                 $8,
-                $9
+                $9,
+                $10
             );
 
             retval := LASTVAL();
@@ -60,7 +63,8 @@ CREATE OR REPLACE FUNCTION fn_projects_save(
                     end_date = $6,
                     description = $7,
                     database_platform_id = $8,
-                    software_lifecycle_id = $9
+                    software_lifecycle_id = $9,
+                    git_url = $10
             WHERE id = $1;
 
             retval := $1;
@@ -84,5 +88,6 @@ ALTER FUNCTION fn_projects_save
   projects.end_date%TYPE,
   projects.description%TYPE,
   projects.database_platform_id%TYPE,
-  projects.software_lifecycle_id%TYPE
+  projects.software_lifecycle_id%TYPE,
+  projects.git_url%TYPE
 )OWNER TO homesite;

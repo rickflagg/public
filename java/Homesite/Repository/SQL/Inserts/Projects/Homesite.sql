@@ -10,7 +10,8 @@ INSERT INTO projects
   end_date,
   description,
   database_platform_id,
-  software_lifecycle_id
+  software_lifecycle_id,
+  git_url
 )
   VALUES
   (
@@ -20,7 +21,8 @@ INSERT INTO projects
     NULL,
     'Personal site',
     (SELECT id FROM database_platforms WHERE UPPER(name) = UPPER('Postgresql')),
-    (SELECT id from software_lifecycles WHERE UPPER(name) = UPPER('Agile-Iterative'))
+    (SELECT id from software_lifecycles WHERE UPPER(name) = UPPER('Agile-Iterative')),
+    'https://github.com/rickflagg/public/tree/master/java/Homesite'
 
   );
 

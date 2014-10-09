@@ -52,31 +52,34 @@
                                     <dt>Languages</dt>
                                     <dd>
                                         <span ng-repeat="language in project.programmingLanguages">
-                                            <a href="{{language.referenceUrl}}">{{language.name}}</a>
+                                            <span class="label label-info"><a class="badgeLink" href="{{language.referenceUrl}}">{{language.name}}</a></span>
                                         </span>
                                     </dd>
 
                                     <dt>Database Platform</dt>
                                     <dd>
-                                        <a href="{{project.databasePlatform.referenceUrl}}">{{project.databasePlatform.name}}</a>
+                                        <span class="label label-info"><a class="badgeLink" href="{{project.databasePlatform.referenceUrl}}">{{project.databasePlatform.name}}</a></span>
                                     </dd>
 
                                     <dt>Design Patterns</dt>
                                     <dd>
                                         <span ng-repeat="pattern in project.designPatterns">
-                                            <a href="{{pattern.referenceUrl}}">{{pattern.name}}</a>
+                                            <span class="label label-info"><a class="badgeLink" href="{{pattern.referenceUrl}}">{{pattern.name}}</a></span>
                                         </span>
                                     </dd>
 
                                     <dt>Toolkits</dt>
                                     <dd>
                                         <span ng-repeat="toolkit in project.programmingToolKits">
-                                            <a href="{{toolkit.referenceUrl}}">{{toolkit.name}}</a>
+                                            <span class="label label-info"><a class="badgeLink" href="{{toolkit.referenceUrl}}">{{toolkit.name}}</a></span>
                                         </span>
                                     </dd>
 
                                     <dt>Lifecycle</dt>
                                     <dd>{{project.softwareLifecycle.name}}</dd>
+
+                                    <dt>Git Url</dt>
+                                    <dd><a href="{{project.gitUrl}}" target="_blank">{{project.gitUrl}}</a></dd>
 
 
                                 </dl>

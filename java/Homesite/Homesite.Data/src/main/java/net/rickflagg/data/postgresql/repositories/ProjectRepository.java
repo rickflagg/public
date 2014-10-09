@@ -91,7 +91,7 @@ public class ProjectRepository implements IProjectRepository {
 
         PostgresFunction function = new PostgresFunction(
                 ds.getConnection(),
-                "{? = call fn_projects_save(?, ?, ?, ?, ?, ?,?, ?, ?) }"
+                "{? = call fn_projects_save(?, ?, ?, ?, ?, ?,?, ?, ?, ?) }"
         );
 
         function.registerOutputParameter(1, Types.INTEGER);
@@ -135,6 +135,8 @@ public class ProjectRepository implements IProjectRepository {
         else{
             function.setIntegerParameter(10, null);
         }
+
+        function.setStringParameter(11, entity.getGitUrl());
 
         function.execute();
 
@@ -345,6 +347,7 @@ public class ProjectRepository implements IProjectRepository {
         entity.setProgrammingLanguages(this.programmingLanguageRepository.findByProject(entity));
         entity.setDesignPatterns(this.designPatternRepository.FindByProject(entity));
         entity.setProgrammingToolKits(this.programmingToolKitRepository.findByProject(entity));
+        entity.setGitUrl(refCursor.parseString("git_url"));
 
         return entity;
 

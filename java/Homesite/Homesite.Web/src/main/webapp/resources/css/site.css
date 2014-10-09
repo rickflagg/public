@@ -235,15 +235,20 @@ i.scroll:hover {
 @media (max-width: 768px) {
 
     .header {
-        background: url(../images/banner_background.jpg) no-repeat center center scroll;
+        background: url(../img/banner_background.jpg) no-repeat center center scroll;
     }
 
     .callout {
-        background: url(../images/callout.jpg) no-repeat center center scroll;
+        background: url(../img/callout.jpg) no-repeat center center scroll;
     }
 
     .map {
         height: 75%;
     }
 
+}
+
+.badgeLink{
+    text-decoration: none;
+    color: #000000;
 }

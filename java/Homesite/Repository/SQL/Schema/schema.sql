@@ -177,6 +177,7 @@ CREATE TABLE projects
   description text,
   database_platform_id int,
   software_lifecycle_id int,
+  git_url text,
   CONSTRAINT pk_projects PRIMARY KEY(id),
   CONSTRAINT fk_projects_to_clients FOREIGN KEY (client_id) REFERENCES clients(id),
   CONSTRAINT fk_projects_to_database_platforms FOREIGN KEY (database_platform_id) REFERENCES database_platforms(id),
