@@ -14,6 +14,7 @@
     <Folder Include="Packages\" />
     <Folder Include="Procedures\" />
     <Folder Include="Scripts\" />
+    <Folder Include="Scripts\Inserts" />
     <Folder Include="Security\" />
     <Folder Include="Security\Permissions\" />
     <Folder Include="Security\Roles\" />
@@ -42,6 +43,24 @@
     </DBRef>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\Inserts\ELECAUDITHEADER_Inserts.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\Inserts\ELECAUDITS_Inserts.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\Inserts\ELECCOMPONENTS_Inserts.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\Inserts\ELECDUNS_Inserts.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\Inserts\ELECEINS_Insert.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scripts\Inserts\ELECREPORTSAGENCY_Inserts.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Tables\ELECAUDITHEADER.sql">
       <SubType>Content</SubType>
     </Content>
@@ -60,7 +79,7 @@
     <Content Include="Tables\ELECHISTORY.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Tables\ELECREPORTSAGECY.sql">
+    <Content Include="Tables\ELECREPORTSAGENCY.sql">
       <SubType>Content</SubType>
     </Content>
   </ItemGroup>
