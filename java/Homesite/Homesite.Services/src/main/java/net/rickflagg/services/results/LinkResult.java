@@ -3,6 +3,7 @@ package net.rickflagg.services.results;
 import net.rickflagg.data.entities.Link;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,6 +27,6 @@ public class LinkResult extends ServiceResultBase {
     }
 
     public LinkResult(){
-        linkMap = new HashMap<String, List<Link>>();
+        linkMap = new LinkedHashMap<>();
     }
 }

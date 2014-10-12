@@ -153,6 +153,31 @@ public class LinkCategoryRepository implements ILinkCategoryRepository {
         return entity;
     }
 
+    @Override
+    public List<LinkCategory> retrieveByLinkCount() throws SQLException, NamingException {
+
+        List<LinkCategory> retval = new ArrayList<LinkCategory>();
+
+        PostgresFunction function = new PostgresFunction(ds.getConnection(), "{ ? = call fn_link_categories_by_link_count() }");
+
+        PostgresRefCursor refCursor = function.getRefCursor();
+
+        if(refCursor != null)
+        {
+            while (refCursor.next())
+            {
+                retval.add(BindEntity(refCursor));
+            }
+        }
+
+        refCursor.dispose();
+        function.dispose();
+
+
+        return retval;
+
+    }
+
     private LinkCategory BindEntity(PostgresRefCursor refCursor) throws SQLException
     {
         LinkCategory entity = new LinkCategory();

@@ -25,6 +25,11 @@ app.factory("AllLinks", function($resource) {
     return $resource("/rest/links/all", {}, {query: {isArray:false}});
 });
 
+app.factory("AllLinksByCategory", function($resource) {
+    return $resource("/rest/links/categories", {}, {query: {isArray:true}});
+});
+
+
 app.controller('ProjectController', function ($scope, AllProjects) {
 
     AllProjects.query(function(data) {
@@ -53,16 +58,17 @@ app.controller('SkillsController', function($scope, AllSkills){
 
     AllSkills.query(function(data){
         $scope.skills = data;
-
     });
 
 });
 
-app.controller('LinksController', function($scope, AllLinks){
+app.controller('LinksController', function($scope, AllLinksByCategory){
 
-    AllLinks.query(function(data){
-        $scope.links = data;
+
+    AllLinksByCategory.query(function(data){
+        $scope.linksByCategory = data;
     });
+
 });
 
 

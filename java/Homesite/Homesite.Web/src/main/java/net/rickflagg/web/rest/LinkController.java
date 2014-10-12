@@ -2,6 +2,7 @@ package net.rickflagg.web.rest;
 
 import net.rickflagg.data.entities.Link;
 import net.rickflagg.services.LinkService;
+import net.rickflagg.services.results.LinkCategoryResult;
 import net.rickflagg.services.results.LinkResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +32,13 @@ public class LinkController extends BaseController{
     Map<String, List<Link>> getAll(HttpServletRequest request){
         LinkResult result = linkService.getAll(createServiceContextParameter(request, null));
         return result.getLinkMap();
+    }
+
+    @RequestMapping(value = "/categories", method = RequestMethod.GET,headers="Accept=application/json")
+    public @ResponseBody
+    List<LinkCategoryResult> getLinksByCategory(HttpServletRequest request){
+        List<LinkCategoryResult> result = linkService.getAllLinkCategories(createServiceContextParameter(request, null));
+        return result;
     }
 
 }

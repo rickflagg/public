@@ -1,8 +1,11 @@
 package net.rickflagg.services;
 
 import net.rickflagg.data.entities.Link;
+import net.rickflagg.data.entities.LinkCategory;
+import net.rickflagg.data.postgresql.repositories.LinkCategoryRepository;
 import net.rickflagg.data.postgresql.repositories.LinkRepository;
 import net.rickflagg.services.context.IServiceContextParameter;
+import net.rickflagg.services.results.LinkCategoryResult;
 import net.rickflagg.services.results.LinkResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.naming.NamingException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -30,6 +35,9 @@ public class LinkService  {
     @Autowired
     private LinkRepository linkRepository;
 
+    @Autowired
+    private LinkCategoryRepository linkCategoryRepository;
+
     public LinkResult getAll(IServiceContextParameter prm){
 
         LinkResult result  = new LinkResult();
@@ -39,28 +47,17 @@ public class LinkService  {
             loggingService.logMessage(prm, this.getClass().getName(),
                     "Pulling links");
 
-            List<Link> links = linkRepository.retrieveAll();
+            List<LinkCategory> linkCategories = linkCategoryRepository.retrieveByLinkCount();
 
-            if(links != null && links.size() > 0)
-            {
-                for(Link link : links){
-                    if(result.getLinkMap().containsKey(link.getLinkCategory().getName())){
-                        result.getLinkMap().get(link.getLinkCategory().getName()).add(link);
-                    }
-                    else{
+            LinkedHashMap<String, List<Link>> map = new LinkedHashMap<>();
 
-                        List<Link> newLink = new ArrayList<Link>();
-
-                        newLink.add(link);
-
-                        result.getLinkMap()
-                                .put(
-                                        link.getLinkCategory().getName(),
-                                        newLink
-                                );
-                    }
+            if(linkCategories != null & linkCategories.size() > 0) {
+                for(LinkCategory linkCategory : linkCategories){
+                    map.put(linkCategory.getName(), linkRepository.findByCategory(linkCategory));
                 }
             }
+
+            result.setLinkMap(map);
 
         }
         catch (SQLException sex){
@@ -87,5 +84,42 @@ public class LinkService  {
     }
 
 
+    public List<LinkCategoryResult> getAllLinkCategories(IServiceContextParameter prm)
+    {
+         List<LinkCategoryResult> results = new ArrayList<>();
+
+        try
+        {
+            loggingService.logMessage(prm, this.getClass().getName(),
+                    "Pulling links");
+
+            List<LinkCategory> linkCategories = linkCategoryRepository.retrieveByLinkCount();
+            int i = 0;
+
+            if(linkCategories != null & linkCategories.size() > 0) {
+                for(LinkCategory linkCategory : linkCategories){
+                    i++;
+                    LinkCategoryResult result = new LinkCategoryResult();
+                    result.setId(i);
+                    result.setCategoryName(linkCategory.getName());
+                    result.setLinks(linkRepository.findByCategory(linkCategory));
+                    results.add(result);
+                }
+            }
+
+        }
+        catch (SQLException sex){
+            loggingService.logSQLException(prm,sex, this.getClass().getName());
+        }
+        catch (NamingException nex){
+            loggingService.logNamingException(prm, nex, this.getClass().getName());
+        }
+        catch (Exception ex){
+            loggingService.logGeneralException(prm, ex, this.getClass().getName());
+        }
+
+         return results;
+
+    }
 
 }

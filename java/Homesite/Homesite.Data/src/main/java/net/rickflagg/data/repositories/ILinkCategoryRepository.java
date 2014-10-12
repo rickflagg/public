@@ -21,6 +21,6 @@ public interface ILinkCategoryRepository {
     public void save(LinkCategory entity) throws SQLException, NamingException;
     public List<LinkCategory> findByName(String name) throws SQLException, NamingException;
     public LinkCategory findById(int id) throws SQLException, NamingException;
-
+    public List<LinkCategory> retrieveByLinkCount() throws SQLException, NamingException;
 
 }

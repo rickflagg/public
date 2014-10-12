@@ -1,6 +1,7 @@
 package net.rickflagg.data.postgresql.repositories.tests;
 
 import net.rickflagg.data.entities.Link;
+import net.rickflagg.data.entities.LinkCategory;
 import net.rickflagg.data.repositories.ILinkCategoryRepository;
 import net.rickflagg.data.repositories.ILinkRepository;
 import org.junit.Test;
@@ -39,10 +40,7 @@ public class LinkRepositoryTests  {
 
     @Test
     public void testRetrieveAll() throws Exception {
-
-
         assertTrue(repo.retrieveAll().size() > 0);
-
     }
 
     @Test
@@ -53,8 +51,14 @@ public class LinkRepositoryTests  {
 
     @Test
     public void testFindById() throws Exception {
-
         assertNotNull(repo.findById(1));
+    }
+
+    @Test
+    public void testRetrieveByCategory() throws Exception{
+        LinkCategory linkCategory = new LinkCategory();
+        linkCategory.setId(1);
+        assertTrue(repo.findByCategory(linkCategory).size() > 0);
     }
 
     @Test

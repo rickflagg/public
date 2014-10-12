@@ -34,10 +34,13 @@ public class LinkCategoryRepositoryTests {
 
 
     @Test
-    public void testRetrieveAll() throws Exception {
-
+    public void testRetrieveByLinkCount() throws Exception{
         assertTrue(repo.retrieveAll().size() > 0);
+    }
 
+    @Test
+    public void testRetrieveAll() throws Exception {
+        assertTrue(repo.retrieveAll().size() > 0);
     }
 
     @Test

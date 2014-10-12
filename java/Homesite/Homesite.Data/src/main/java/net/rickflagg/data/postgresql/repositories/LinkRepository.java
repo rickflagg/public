@@ -1,6 +1,7 @@
 package net.rickflagg.data.postgresql.repositories;
 
 import net.rickflagg.data.entities.Link;
+import net.rickflagg.data.entities.LinkCategory;
 import net.rickflagg.data.postgresql.PostgresFunction;
 import net.rickflagg.data.postgresql.PostgresRefCursor;
 import net.rickflagg.data.repositories.ILinkCategoryRepository;
@@ -153,6 +154,36 @@ public class LinkRepository implements ILinkRepository {
         return entity;
     }
 
+    @Override
+    public List<Link> findByCategory(LinkCategory linkCategory) throws SQLException, NamingException {
+
+        List<Link> retval = new ArrayList<Link>();
+
+        PostgresFunction function = new PostgresFunction(
+                ds.getConnection(),
+                "{ ? = call fn_links_by_category(?) }"
+        );
+
+        function.setIntegerParameter(2, linkCategory.getId());
+
+        PostgresRefCursor refCursor = function.getRefCursor();
+
+        if (refCursor != null){
+
+            while(refCursor.next())
+            {
+                retval.add(BindEntity(refCursor));
+            }
+        }
+
+        refCursor.dispose();
+        function.dispose();
+
+
+        return retval;
+
+    }
+
     private Link BindEntity(PostgresRefCursor refCursor) throws SQLException, NamingException
     {
         Link entity = new Link();
@@ -164,6 +195,7 @@ public class LinkRepository implements ILinkRepository {
 
         return entity;
     }
+
 
 
 }

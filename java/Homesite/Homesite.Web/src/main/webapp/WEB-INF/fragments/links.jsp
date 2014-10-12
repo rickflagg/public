@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+
 <div id="links" ng-controller="LinksController">
 
     <div class="row">
@@ -18,14 +19,14 @@
 
     <div class="row">
 
-        <div class="col-md-4" ng-repeat="(key, value) in links">
+        <div class="col-md-4" ng-repeat="result in linksByCategory">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">{{key}}</h3>
+                    <h3 class="panel-title">{{result.categoryName}}</h3>
                 </div>
                 <div class="panel-body">
 
-                    <div class="list-group" ng-repeat="link in value">
+                    <div class="list-group" ng-repeat="link in result.links">
                         <a href="{{link.url}}" class="list-group-item" target="_blank">
                             <h4 class="list-group-item-heading">{{link.name}}</h4>
                             <p class="list-group-item-text">{{link.description}}</p>

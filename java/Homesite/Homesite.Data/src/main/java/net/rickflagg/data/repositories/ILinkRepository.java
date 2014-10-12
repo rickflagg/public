@@ -1,6 +1,7 @@
 package net.rickflagg.data.repositories;
 
 import net.rickflagg.data.entities.Link;
+import net.rickflagg.data.entities.LinkCategory;
 
 import javax.naming.NamingException;
 import java.sql.SQLException;
@@ -20,6 +21,6 @@ public interface ILinkRepository {
     public void save(Link entity) throws SQLException, NamingException;
     public List<Link> findByName(String name) throws SQLException, NamingException;
     public Link findById(int id) throws SQLException, NamingException;
-
+    public List<Link> findByCategory(LinkCategory linkCategory) throws SQLException, NamingException;
 
 }
