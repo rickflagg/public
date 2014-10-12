@@ -1,8 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{F54BABF1-1105-475F-9FCB-BDC953D5A2E5}"
+EndProject
+Project("{218574D1-FF94-4B95-8577-A6D58C11C315}") = "FederalAuditTools.Database.Collections", "FederalAuditTools.Database.Collections\FederalAuditTools.Database.Collections.oradbproj", "{218574D1-FF94-4B95-8577-A6D58C11C315}"
+EndProject
+Project("{218574D1-FF94-4B95-8577-A6D58C11C315}") = "FederalAuditTools.Database.Processing", "FederalAuditTools.Database.Processing\FederalAuditTools.Database.Processing.oradbproj", "{3A8CE3D3-4AC6-4301-8331-81C2830DCAC4}"
+EndProject
+Project("{218574D1-FF94-4B95-8577-A6D58C11C315}") = "FederalAuditTools.Database.Dissemination", "FederalAuditTools.Database.Dissemination\FederalAuditTools.Database.Dissemination.oradbproj", "{F120A183-3C87-4BF1-8508-9E9133E65A45}"
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{218574D1-FF94-4B95-8577-A6D58C11C315} = {F54BABF1-1105-475F-9FCB-BDC953D5A2E5}
+		{3A8CE3D3-4AC6-4301-8331-81C2830DCAC4} = {F54BABF1-1105-475F-9FCB-BDC953D5A2E5}
+		{F120A183-3C87-4BF1-8508-9E9133E65A45} = {F54BABF1-1105-475F-9FCB-BDC953D5A2E5}
 	EndGlobalSection
 EndGlobal
