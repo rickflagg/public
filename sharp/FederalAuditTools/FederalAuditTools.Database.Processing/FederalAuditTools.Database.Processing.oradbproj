@@ -41,4 +41,9 @@
       <IsDefault>true</IsDefault>
     </DBRef>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Tables\ELECAUDITHEADER.sql">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
 </Project>
