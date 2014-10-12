@@ -45,5 +45,23 @@
     <Content Include="Tables\ELECAUDITHEADER.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Tables\ELECAUDITS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\ELECCOMPONENTS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\ELECDUNS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\ELECEINS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\ELECHISTORY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\ELECREPORTSAGECY.sql">
+      <SubType>Content</SubType>
+    </Content>
   </ItemGroup>
 </Project>
