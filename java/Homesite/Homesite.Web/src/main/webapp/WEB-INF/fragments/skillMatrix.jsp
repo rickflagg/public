@@ -30,7 +30,7 @@
 
                           <div class="progress">
                               <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{matrix.rating}}" aria-valuemin="0" aria-valuemax="100" style="width: {{matrix.rating}}%">
-                                  <span class="sr-only">{{matrix.rating}}% Complete (success)</span>
+                                   {{matrix.rating}}% Mastery
                               </div>
                           </div>
                 </div>
