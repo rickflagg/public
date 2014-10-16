@@ -289,6 +289,91 @@ INSERT INTO programming_toolkits
 
   );
 
+INSERT INTO programming_toolkits
+(
+  name,
+  active,
+  date_created,
+  date_modified,
+  sort_order,
+  reference_url,
+  programming_language_id
+)
+  VALUES
+  (
+    'JQuery UI',
+    true,
+    current_timestamp,
+    current_timestamp,
+    null,
+    '',
+    (SELECT id from programming_languages where UPPER(name) = ('Javascript'))
+  );
+
+INSERT INTO programming_toolkits
+(
+  name,
+  active,
+  date_created,
+  date_modified,
+  sort_order,
+  reference_url,
+  programming_language_id
+)
+  VALUES
+  (
+    'CSS',
+    true,
+    current_timestamp,
+    current_timestamp,
+    null,
+    'http://en.wikipedia.org/wiki/Cascading_Style_Sheets',
+    null
+  );
+
+INSERT INTO programming_toolkits
+(
+  name,
+  active,
+  date_created,
+  date_modified,
+  sort_order,
+  reference_url,
+  programming_language_id
+)
+  VALUES
+  (
+    'Bootstrap',
+    true,
+    current_timestamp,
+    current_timestamp,
+    null,
+    'http://getbootstrap.com/',
+    null
+  );
+
+INSERT INTO programming_toolkits
+(
+  name,
+  active,
+  date_created,
+  date_modified,
+  sort_order,
+  reference_url,
+  programming_language_id
+)
+  VALUES
+  (
+    'JQuery Datatables',
+    true,
+    current_timestamp,
+    current_timestamp,
+    null,
+    'http://www.datatables.net/',
+    (SELECT id from programming_languages where UPPER(name) = ('Javascript'))
+  );
+
+
 
 
 

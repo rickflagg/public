@@ -44,7 +44,7 @@ CREATE TABLE programming_toolkits
     date_modified timestamp not null default current_timestamp,
     sort_order int4 null,
     reference_url text null,
-    programming_language_id int8 not null,
+    programming_language_id int8 null,
     CONSTRAINT pk_programming_toolkit PRIMARY KEY(id),
     CONSTRAINT fk_programming_toolkits_to_languages FOREIGN KEY (programming_language_id) references programming_languages(id)
 );
