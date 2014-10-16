@@ -373,6 +373,26 @@ INSERT INTO programming_toolkits
     (SELECT id from programming_languages where UPPER(name) = ('Javascript'))
   );
 
+INSERT INTO programming_toolkits
+(
+  name,
+  active,
+  date_created,
+  date_modified,
+  sort_order,
+  reference_url,
+  programming_language_id
+)
+  VALUES
+  (
+    'JQuery FullCalendar',
+    true,
+    current_timestamp,
+    current_timestamp,
+    null,
+    'http://fullcalendar.io/',
+    (SELECT id from programming_languages where name = 'Javascript')
+  );
 
 
 
