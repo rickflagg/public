@@ -11,3 +11,8 @@ INSERT INTO clients(name, reference_url)
 INSERT INTO clients(name, reference_url)
   VALUES
   ('Center for Disease Control', 'http://cdc.gov');
+
+INSERT INTO clients(name, reference_url)
+  VALUES
+  ('Insignia Federal Group', 'http://www.insigniafederal.com/');
+
