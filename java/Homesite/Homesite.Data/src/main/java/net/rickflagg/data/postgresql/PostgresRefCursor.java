@@ -43,7 +43,7 @@ public class PostgresRefCursor {
 
     }
 
-    protected boolean columnExists(String column) {
+    public boolean columnExists(String column) {
         boolean retval = false;
 
         try

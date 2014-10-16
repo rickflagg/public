@@ -194,8 +194,11 @@ public class ProgrammingToolKitRepository implements IProgrammingToolKitReposito
 
         refCursor.bindBaseEntity(entity);
         entity.setReferenceUrl(refCursor.parseString("reference_url"));
-        entity.setProgrammingLanguage(programmingLanguageRepository.findById(refCursor.parseInt("programming_language_id")));
 
+        if(refCursor.columnExists("programming_language_id"))
+        {
+            entity.setProgrammingLanguage(programmingLanguageRepository.findById(refCursor.parseInt("programming_language_id")));
+        }
 
         return entity;
     }
