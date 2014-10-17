@@ -15,11 +15,7 @@
                 <p class="lead">
                     {{introText}}
                 <p>
-                    <!--
-                    <p class="lead">
-                        You can view my complete credentials in the following formats: <a href="{{ url_for('static', filename='rflagg_2014.docx') }}" target="_blank">(doc)</a> <a href="{{ url_for('static', filename='rflagg_2014.pdf') }}" target="_blank" >(pdf)</a>
-                    </p>
-                    -->
+
             </div>
         </div>
     </div>

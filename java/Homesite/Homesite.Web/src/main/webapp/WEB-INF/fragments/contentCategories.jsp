@@ -16,14 +16,8 @@
             </div>
         </div>
         <div class="row">
+
             <div class="col-md-2 col-md-offset-3 text-center">
-                <div class="service-item">
-                    <a href="#links"><i class="service-icon fa fa-bolt"></i></a>
-                    <h4>Links</h4>
-                    <p>Explore some of my favorite places on the web.</p>
-                </div>
-            </div>
-            <div class="col-md-2 text-center">
                 <div class="service-item">
                     <a href="#portfolio"><i class="service-icon fa fa-wrench"></i></a>
                     <h4>Portfolio</h4>
@@ -36,6 +30,15 @@
                     <a href="#skills"><i class="service-icon fa fa-keyboard-o"></i></a>
                     <h4>Skillsets</h4>
                     <p>View my skillsets</p>
+                </div>
+            </div>
+
+
+            <div class="col-md-2 text-center">
+                <div class="service-item">
+                    <a href="#links"><i class="service-icon fa fa-bolt"></i></a>
+                    <h4>Links</h4>
+                    <p>Explore some of my favorite places on the web.</p>
                 </div>
             </div>
 

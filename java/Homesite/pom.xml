@@ -145,6 +145,8 @@
                                 <srcFile>${sql.inserts.dir}/Projects/Processing.sql</srcFile>
                                 <srcFile>${sql.inserts.dir}/Projects/FACManager.sql</srcFile>
                                 <srcFile>${sql.inserts.dir}/Projects/CIASMembershipProvider.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/Projects/WIESE.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/Projects/InsigniaFederal.sql</srcFile>
                                 <srcFile>${sql.inserts.dir}/SkillMatrixCategories.sql</srcFile>
                                 <srcFile>${sql.inserts.dir}/SkillMatrix.sql</srcFile>
                                 <srcFile>${sql.inserts.dir}/ApplicationLogs.sql</srcFile>
