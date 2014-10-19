@@ -52,26 +52,26 @@
                                     <dt>Languages</dt>
                                     <dd>
                                         <span ng-repeat="language in project.programmingLanguages">
-                                            <span class="label label-success"><a class="badgeLink" href="{{language.referenceUrl}}" target="_blank">{{language.name}}</a></span>
+                                            <span class="badge"><a class="badgeLink" href="{{language.referenceUrl}}" target="_blank">{{language.name}}</a></span>
                                         </span>
                                     </dd>
 
                                     <dt>Database Platform</dt>
                                     <dd>
-                                        <span class="label label-success"><a class="badgeLink" href="{{project.databasePlatform.referenceUrl}}" target="_blank">{{project.databasePlatform.name}}</a></span>
+                                        <span class="badge"><a class="badgeLink" href="{{project.databasePlatform.referenceUrl}}" target="_blank">{{project.databasePlatform.name}}</a></span>
                                     </dd>
 
                                     <dt>Design Patterns</dt>
                                     <dd>
                                         <span ng-repeat="pattern in project.designPatterns">
-                                            <span class="label label-success"><a class="badgeLink" href="{{pattern.referenceUrl}}" target="_blank">{{pattern.name}}</a></span>
+                                            <span class="badge"><a class="badgeLink" href="{{pattern.referenceUrl}}" target="_blank">{{pattern.name}}</a></span>
                                         </span>
                                     </dd>
 
                                     <dt>Toolkits</dt>
                                     <dd>
                                         <span ng-repeat="toolkit in project.programmingToolKits">
-                                            <span class="label label-success"><a class="badgeLink" href="{{toolkit.referenceUrl}}" target="_blank">{{toolkit.name}}</a></span>
+                                            <span class="badge"><a class="badgeLink" href="{{toolkit.referenceUrl}}" target="_blank">{{toolkit.name}}</a></span>
                                         </span>
                                     </dd>
 

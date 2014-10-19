@@ -78,3 +78,22 @@ INSERT INTO programming_languages
     'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference'
 
   );
+
+INSERT INTO programming_languages
+(
+  name,
+  active,
+  date_created,
+  date_modified,
+  sort_order,
+  reference_url
+)
+  VALUES
+  (
+    'Visual Basic',
+    true,
+    current_timestamp,
+    current_timestamp,
+    null,
+    'http://en.wikipedia.org/wiki/Visual_Basic'
+  );

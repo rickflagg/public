@@ -146,6 +146,18 @@
                                 <srcFile>${sql.inserts.dir}/Projects/FACManager.sql</srcFile>
                                 <srcFile>${sql.inserts.dir}/Projects/CIASMembershipProvider.sql</srcFile>
                                 <srcFile>${sql.inserts.dir}/Projects/WIESE.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/Projects/DPCLOR.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/Projects/HRReportingTool.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/Projects/PMRO.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/Projects/CAPMarketing.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/Projects/CAPPortal.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/Projects/CAPAcquisitions.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/Projects/NAHB.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/Projects/ICDR.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/Projects/ART.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/Projects/DHIMS.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/Projects/HUDAccomodationTracking.sql</srcFile>
+                                <srcFile>${sql.inserts.dir}/Projects/ICDRResearchManager.sql</srcFile>
                                 <srcFile>${sql.inserts.dir}/Projects/InsigniaFederal.sql</srcFile>
                                 <srcFile>${sql.inserts.dir}/SkillMatrixCategories.sql</srcFile>
                                 <srcFile>${sql.inserts.dir}/SkillMatrix.sql</srcFile>

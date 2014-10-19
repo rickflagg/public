@@ -19,3 +19,15 @@ INSERT INTO design_patterns (name, reference_url)
 INSERT INTO design_patterns (name, reference_url)
   values
   ('Model View Presenter (MVP)', 'http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller');
+
+INSERT INTO design_patterns (name, reference_url)
+  values
+  ('Data Access Object', 'http://en.wikipedia.org/wiki/Data_access_object');
+
+INSERT INTO design_patterns (name, reference_url)
+  values
+  ('Dependency Injection', 'http://en.wikipedia.org/wiki/Dependency_injection0');
+
+INSERT INTO design_patterns (name, reference_url)
+  values
+  ('POCO', 'http://en.wikipedia.org/wiki/Plain_Old_CLR_Object');

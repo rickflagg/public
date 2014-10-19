@@ -23,3 +23,6 @@ INSERT INTO roles (name, active, date_created, date_modified)
 
 INSERT INTO roles (name, active, date_created, date_modified)
   values('Product Owner', true, current_timestamp, current_timestamp);
+
+INSERT INTO roles (name, active, date_created, date_modified)
+  values('Information System Security Officer', true, current_timestamp, current_timestamp);

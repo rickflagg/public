@@ -394,6 +394,91 @@ INSERT INTO programming_toolkits
     (SELECT id from programming_languages where name = 'Javascript')
   );
 
+INSERT INTO programming_toolkits
+(
+  name,
+  active,
+  date_created,
+  date_modified,
+  sort_order,
+  reference_url,
+  programming_language_id
+)
+  VALUES
+  (
+    'Spring.NET',
+    true,
+    current_timestamp,
+    current_timestamp,
+    null,
+    'http://springframework.net/',
+    (SELECT id from programming_languages where name = 'C#')
+  );
+
+INSERT INTO programming_toolkits
+(
+  name,
+  active,
+  date_created,
+  date_modified,
+  sort_order,
+  reference_url,
+  programming_language_id
+)
+  VALUES
+  (
+    'ASP.NET',
+    true,
+    current_timestamp,
+    current_timestamp,
+    null,
+    'http://msdn.microsoft.com/en-us/library/dd566232(v=vs.100).aspx',
+    (SELECT id from programming_languages where name = 'C#')
+  );
+
+INSERT INTO programming_toolkits
+(
+  name,
+  active,
+  date_created,
+  date_modified,
+  sort_order,
+  reference_url,
+  programming_language_id
+)
+  VALUES
+  (
+    'Struts',
+    true,
+    current_timestamp,
+    current_timestamp,
+    null,
+    'http://struts.apache.org/',
+    (SELECT id from programming_languages where name = 'Java')
+  );
+
+INSERT INTO programming_toolkits
+(
+  name,
+  active,
+  date_created,
+  date_modified,
+  sort_order,
+  reference_url,
+  programming_language_id
+)
+  VALUES
+  (
+    'Cold Fusion',
+    true,
+    current_timestamp,
+    current_timestamp,
+    null,
+    'http://en.wikipedia.org/wiki/Adobe_ColdFusion',
+    (SELECT id from programming_languages where name = 'Java')
+  );
+
+
 
 
 
