@@ -179,3 +179,175 @@ INSERT INTO links (link_category_id, name, description, url)
     'Repair Manuals for everything', -- description
     'https://www.ifixit.com/Guide' -- url
   );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='Java Links'), --category
+    'Java One Talks - 2014', -- name
+    'Talks from the Java One conference in 2014', -- description
+    'https://www.parleys.com/channel/54254c82e4b0b39c12e10bf9/presentations?sort=date&state=public' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='General Programming Links'), --category
+    'Newton’s algorithm', -- name
+    'Using solving any equation and solving any optimization problem', -- description
+    'http://julesjacobs.github.io/2014/10/16/newton-the-ultimate.html' -- url
+  );
+
+
+INSERT INTO links (link_category_id, name, description, url)
+ values(
+   (SELECT id FROM link_categories WHERE name ='Java Links'), --category
+   'JXTN', -- name
+   'Java 8 API Extensions and Utilities', -- description
+   'https://github.com/AqD/JXTN/' -- url
+ );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='Javascript Links'), --category
+    'ECMAScript 6 Overview', -- name
+    'Brief overview of the forthcoming ECMAScript 6 changes', -- description
+    'https://llaine.github.io//blog/2014/10/19/es6/' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='AngularJS Links'), --category
+    'angular-filter', -- name
+    'Usefull filters for AngularJS', -- description
+    'https://github.com/a8m/angular-filter' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='AngularJS Links'), --category
+    'AngularJS Best Practices: Directory Structure', -- name
+    'Best practices for  directory structures for both small and large AngularJS apps', -- description
+    'http://scotch.io/tutorials/javascript/angularjs-best-practices-directory-structure' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='Personal Links'), --category
+    'Rules of civility and behavior', -- name
+    'George Washington''s  rules of civility and behavior', -- description
+    'http://www.foundationsmag.com/civility.html' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='.NET Links'), --category
+    'Fluent Interface', -- name
+    'How to create fluent interfaces in .NET', -- description
+    'http://www.erikschierboom.com/2014/10/08/fluent-interfaces/' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='Java Links'), --category
+    'Java news and resources', -- name
+    'Portal site containing Java news and resources', -- description
+    'http://www.javais.cool/' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='CSS Links'), --category
+    'Slick carousel', -- name
+    'Fully responsive content carousel', -- description
+    'http://kenwheeler.github.io/slick/' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='Javascript Links'), --category
+    'Welcome ES6 !! JavaScript Is Not Fancy Anymore', -- name
+    '''Fancy'' things fixed in ES6', -- description
+    'http://tech.namshi.com/blog/2014/10/19/welcome-es6-javascript-is-not-fancy-anymore/' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='Javascript Links'), --category
+    'Welcome ES6 !! JavaScript Is Not Fancy Anymore', -- name
+    '''Fancy'' things fixed in ES6', -- description
+    'http://tech.namshi.com/blog/2014/10/19/welcome-es6-javascript-is-not-fancy-anymore/' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='AngularJS Links'), --category
+    'AngularJS and RequireJS', -- name
+    'Using RequireJS to manage dependencies in AngularJS', -- description
+    'http://www.sitepoint.com/using-requirejs-angularjs-applications/' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='Bootstrap Links'), --category
+    'Bootstrap compatible calendar', -- name
+    'Nicely style bootstrap calendar', -- description
+    'http://codepen.io/bbarry/pen/Eopdk' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='Bootstrap Links'), --category
+    'Bootstrap Admin site template', -- name
+    'Nicely styled admin site template', -- description
+    'http://startbootstrap.com/template-overviews/sb-admin/' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='Pipe Links'), --category
+    'Estate Pipes', -- name
+    'Listing of Estate Pipes for sale', -- description
+    'http://www.stemandbriar.com/sales/estate-pipes-for-sale' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='General Technology Links'), --category
+    'Responsive design', -- name
+    'Responsive design reading list', -- description
+    'http://demosthenes.info/blog/925/Web-Developer-Reading-List-Responsive-Design' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='HTML5 Links'), --category
+    'HTML5 Data Attributes', -- name
+    'Awesome things about HTML5 Data Attributes', -- description
+    'http://vegibit.com/the-top-7-most-awesome-things-about-html5-data-attributes/' -- url
+  );
+
+
+  /*
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name =''), --category
+    '', -- name
+    '', -- description
+    '' -- url
+  );
+
+*/
+
+--General Technology Links
+--General Programming Links
+--.NET Links
+--Python Links
+--Java Links
+--Bootstrap Links
+--Javascript Links
+--Household Links
+--AngularJS Links
+--Naval Links
+--Personal Links
+--CSS Links
+--Pipe Links
+--HTML5 Links

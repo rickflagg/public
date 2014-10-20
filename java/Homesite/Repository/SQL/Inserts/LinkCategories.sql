@@ -80,3 +80,57 @@ INSERT INTO link_categories
   );
 
 
+INSERT INTO link_categories
+(
+  name
+)
+  VALUES
+  (
+    'AngularJS Links'
+  );
+
+INSERT INTO link_categories
+(
+  name
+)
+  VALUES
+  (
+    'Naval Links'
+  );
+
+
+INSERT INTO link_categories
+(
+  name
+)
+  VALUES
+  (
+    'Personal Links'
+  );
+
+INSERT INTO link_categories
+(
+  name
+)
+  VALUES
+  (
+    'CSS Links'
+  );
+
+INSERT INTO link_categories
+(
+  name
+)
+  VALUES
+  (
+    'Pipe Links'
+  );
+
+INSERT INTO link_categories
+(
+  name
+)
+  VALUES
+  (
+    'HTML5 Links'
+  );
