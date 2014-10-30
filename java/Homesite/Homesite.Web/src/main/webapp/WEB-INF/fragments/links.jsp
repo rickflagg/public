@@ -17,24 +17,49 @@
         </div>
     </div>
 
-    <div class="row">
+    <div ng-controller="LinksController">
 
-        <div class="col-md-4" ng-repeat="result in linksByCategory">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">{{result.categoryName}}</h3>
-                </div>
-                <div class="panel-body">
+        <div ng-repeat="row in rows">
 
-                    <div class="list-group" ng-repeat="link in result.links">
-                        <a href="{{link.url}}" class="list-group-item" target="_blank">
-                            <h4 class="list-group-item-heading">{{link.name}}</h4>
-                            <p class="list-group-item-text">{{link.description}}</p>
-                        </a>
+            <div class="row">
+
+                <div class="col-md-4" ng-repeat="record in row">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                <a  href="javascript:void(0);" ng-click="isCollapsed = !isCollapsed">{{record.categoryName}}</a>
+                            </h3>
+                        </div>
+                        <div class="panel-body" ng-show="!isCollapsed">
+
+                            <ul class="list-group" ng-repeat="link in record.links">
+                                <li class="list-group-item">
+
+                                    <dl>
+                                        <dt><a href="{{link.url}}" target="_blank">
+                                            <h4 class="list-group-item-heading">{{link.name}}</h4>
+                                        </a></dt>
+                                        <dd><p class="list-group-item-text">{{link.description}}</p></dd>
+                                    </dl>
+
+                                </li>
+                            </ul>
+
+                        </div>
                     </div>
 
                 </div>
+
             </div>
+
         </div>
+
     </div>
+
+
+
+
+
+
 </div>

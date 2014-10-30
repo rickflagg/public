@@ -326,6 +326,128 @@ INSERT INTO links (link_category_id, name, description, url)
   );
 
 
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='Java Links'), --category
+    'Spring Security password encryption', -- name
+    'Encrypting passwords in the spring framework', -- description
+    'http://stackoverflow.com/questions/8521251/spring-securitypassword-encoding-in-db-and-in-applicationconext' -- url
+  );
+
+    INSERT INTO links (link_category_id, name, description, url)
+    values(
+    (SELECT id FROM link_categories WHERE name ='Java Links'), --category
+    'Spring Social', -- name
+    'Adding Social login to a Spring application', -- description
+    'http://www.petrikainulainen.net/programming/spring-framework/adding-social-sign-in-to-a-spring-mvc-web-application-configuration/' -- url
+    );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='General Programming Links'), --category
+    'Scrum Training Videos', -- name
+    'Plain and simple training videos for SCRUM', -- description
+    'http://scrummethodology.com/' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='General Programming Links'), --category
+    'Scrum Card', -- name
+    'Usefull reference for Agile', -- description
+    'http://scrumreferencecard.com/scrum-reference-card/' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='CSS Links'), --category
+    'Vector Icons', -- name
+    'Vector Icons', -- description
+    'http://www.flaticon.com/' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='.NET Links'), --category
+    'C# and ECMAScript 6', -- name
+    'A comparison between C# and ECMAScript 6', -- description
+    'http://mspi.es/blog/A-comparison-between-the-new-ECMAScript-6-language-features-and-C' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='Javascript Links'), --category
+    'Learning Javascript', -- name
+    'Biting the bullet and actually learning Javascript', -- description
+    'http://www.tenleaves.com/paths/thinking-in-js' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='Javascript Links'), --category
+    'Javascript Garden', -- name
+    'Javascript Garden', -- description
+    'http://shamansir.github.io/JavaScript-Garden/en/' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='General Technology Links'), --category
+    'uilang', -- name
+    'Minimal UI focused language', -- description
+    'http://uilang.com/' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='General Programming Links'), --category
+    'Postgresql Bloat', -- name
+    'Checking for Postgresql Bloat', -- description
+    'http://www.keithf4.com/checking-for-postgresql-bloat/' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='Javascript Links'), --category
+    'Object Oriented Javascript', -- name
+    'Object Oriented Javascript for C# developers', -- description
+    'http://www.barbarianmeetscoding.com/blog/2014/08/20/object-oriented-javascript-for-c-sharp-developers/' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='Naval Links'), --category
+    'USS Enterprise', -- name
+    'Evolution of the USS Enterprise', -- description
+    'http://i.imgur.com/dPDSQbg.jpg' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='.NET Links'), --category
+    '.NET Interview Questions', -- name
+    'What great .NET developers should know', -- description
+    'http://www.hanselman.com/blog/WhatGreatNETDevelopersOughtToKnowMoreNETInterviewQuestions.aspx' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='Javascript Links'), --category
+    'Reddit API', -- name
+    'Realtime Reddit API', -- description
+    'http://blog.pusher.com/pusher-realtime-reddit-api/?utm_source=reddit&utm_medium=submitted_post&utm_campaign=reddit_api_launch' -- url
+  );
+
+INSERT INTO links (link_category_id, name, description, url)
+  values(
+    (SELECT id FROM link_categories WHERE name ='Naval Links'), --category
+    'Ships and Submarines of the US Navy 2014', -- name
+    'Ships and Submarines of the US Navy 2014', -- description
+    'http://i.imgur.com/Ozz7SBm.jpg' -- url
+  );
+
+
   /*
 INSERT INTO links (link_category_id, name, description, url)
   values(
