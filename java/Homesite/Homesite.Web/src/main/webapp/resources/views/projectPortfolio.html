@@ -1,0 +1,101 @@
+
+<div id="portfolio" class="portfolio" ng-controller="ProjectController">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 text-center">
+                <h2>Application Portfolio</h2>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row" ng-repeat="project in projects | startFrom: currentPage*pageSize | limitTo:pageSize">
+
+            <div id="paged-content-{{($index + 1)}}" >
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        {{project.name}}
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="media">
+                            <a class="pull-left" href="http://rickflagg.net">
+                                <img class="media-object img-circle" width="64" height="64" src="/resources/img/beach1.jpg" alt="RickFlagg.net background">
+                            </a>
+                            <div class="media-body">
+
+                                <dl class="dl-horizontal">
+
+                                    <dt>Client:</dt>
+                                    <dd>{{project.client.name}}</dd>
+
+                                    <dt>Timeframe</dt>
+                                    <dd>{{project.formattedProjectTimeSpan}}</dd>
+
+                                    <dt>Description:</dt>
+                                    <dd>{{project.description}}</dd>
+
+                                    <dt>Roles:</dt>
+                                    <dd>{{project.delimitedRoles}}</dd>
+
+                                    <dt>Languages</dt>
+                                    <dd>
+                                        <span ng-repeat="language in project.programmingLanguages">
+                                            <span class="badge"><a class="badgeLink" href="{{language.referenceUrl}}" target="_blank">{{language.name}}</a></span>
+                                        </span>
+                                    </dd>
+
+                                    <dt>Database Platform</dt>
+                                    <dd>
+                                        <span class="badge"><a class="badgeLink" href="{{project.databasePlatform.referenceUrl}}" target="_blank">{{project.databasePlatform.name}}</a></span>
+                                    </dd>
+
+                                    <dt>Design Patterns</dt>
+                                    <dd>
+                                        <span ng-repeat="pattern in project.designPatterns">
+                                            <span class="badge"><a class="badgeLink" href="{{pattern.referenceUrl}}" target="_blank">{{pattern.name}}</a></span>
+                                        </span>
+                                    </dd>
+
+                                    <dt>Toolkits</dt>
+                                    <dd>
+                                        <span ng-repeat="toolkit in project.programmingToolKits">
+                                            <span class="badge"><a class="badgeLink" href="{{toolkit.referenceUrl}}" target="_blank">{{toolkit.name}}</a></span>
+                                        </span>
+                                    </dd>
+
+                                    <dt>Lifecycle</dt>
+                                    <dd>{{project.softwareLifecycle.name}}</dd>
+
+                                    <dt>Git Url</dt>
+                                    <dd><a href="{{project.gitUrl}}" target="_blank">{{project.gitUrl}}</a></dd>
+
+
+                                </dl>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="pager">
+
+                    <li><button class="btn btn-default" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1" id="btnPrevious">Previous</button></li>
+                    {{currentPage+1}}/{{numberOfPages()}}
+                    <li><button class="btn btn-default" ng-disabled="currentPage >= projects.length/pageSize - 1" ng-click="currentPage=currentPage+1" id="btnNext">Next</button></li>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

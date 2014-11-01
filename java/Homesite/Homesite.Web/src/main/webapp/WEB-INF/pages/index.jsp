@@ -34,12 +34,29 @@
     <link rel="shortcut icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/img/favicon.ico" />
 
     <!-- JavaScript -->
-    <script src="<%=request.getContextPath()%>/resources/js/vendor/jquery-1.10.2.min.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/js/vendor/bootstrap.min.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/js/vendor/modernizr-2.6.2.min.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/js/vendor/angular.min.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/js/vendor/angular-resource.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/js/app.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/scripts/vendor/jquery-1.10.2.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/scripts/vendor/bootstrap.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/scripts/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/scripts/vendor/angular.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/scripts/vendor/angular-resource.js"></script>
+
+    <!-- Angular App -->
+    <script src="<%=request.getContextPath()%>/resources/scripts/app.js"></script>
+    <!-- Angular Controllers -->
+    <script src="<%=request.getContextPath()%>/resources/scripts/controllers/ContentController.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/scripts/controllers/LinkController.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/scripts/controllers/ProjectController.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/scripts/controllers/SkillController.js"></script>
+    <!-- Angular Filters -->
+    <script src="<%=request.getContextPath()%>/resources/scripts/filters/StartFrom.js"></script>
+    <!-- Angular Services -->
+    <script src="<%=request.getContextPath()%>/resources/scripts/services/ContentService.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/scripts/services/LinkService.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/scripts/services/ProjectService.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/scripts/services/SkillService.js"></script>
+
+
+
 
 </head>
 
@@ -60,11 +77,11 @@
 <!-- /Full Page Image Header Area -->
 
 <!-- Intro -->
-<%@include file="/WEB-INF/fragments/globalIntro.jsp" %>
+<div ng-include="'<%=request.getContextPath()%>/resources/views/siteIntro.html'"></div>
 <!-- /Intro -->
 
 <!-- Content Categories -->
-<%@include file="/WEB-INF/fragments/contentCategories.jsp" %>
+<div ng-include="'<%=request.getContextPath()%>/resources/views/contentCategories.html'"></div>
 <!-- /Content Categories -->
 
 <!-- Callout -->
@@ -76,20 +93,20 @@
 <!-- /Callout -->
 
 <!-- Portfolio -->
-<%@include file="/WEB-INF/fragments/projectPortfolio.jsp" %>
+<div ng-include="'<%=request.getContextPath()%>/resources/views/projectPortfolio.html'"></div>
 <!-- /Portfolio -->
 
 <!-- Skills -->
-<%@include file="/WEB-INF/fragments/skillMatrix.jsp" %>
+<div ng-include="'<%=request.getContextPath()%>/resources/views/skillMatrix.html'"></div>
 <!-- /Skills -->
 
 
 <!-- Links -->
-<%@include file="/WEB-INF/fragments/links.jsp" %>
+<div ng-include="'<%=request.getContextPath()%>/resources/views/links.html'"></div>
 <!-- /Links -->
 
 <!-- Footer -->
-<%@include file="/WEB-INF/fragments/globalFooter.jsp" %>
+<div ng-include="'<%=request.getContextPath()%>/resources/views/globalFooter.html'"></div>
 <!-- /Footer -->
 
 
@@ -102,6 +119,7 @@
 </script>
 <script>
     $("#menu-toggle").click(function(e) {
+        console.log("Toggled");
         e.preventDefault();
         $("#sidebar-wrapper").toggleClass("active");
     });
