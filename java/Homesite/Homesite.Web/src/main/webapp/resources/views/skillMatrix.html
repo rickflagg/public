@@ -11,9 +11,9 @@
         <div class="col-md-4" ng-repeat="(key, value) in skills">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">{{key}}</h3>
+                    <a href="javascript:void(0);" ng-click="isCollapsed = !isCollapsed">{{key}}</a>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body" ng-show="!isCollapsed">
                     <div ng-repeat="matrix in value">
                         <div>
                             <h5>{{matrix.name}}</h5>
