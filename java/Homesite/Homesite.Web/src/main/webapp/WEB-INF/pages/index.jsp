@@ -24,11 +24,11 @@
     <title>RickFlagg.net</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/resources/css/bootstrap.css"  rel="stylesheet">
+    <link href="/resources/styles/bootstrap.css"  rel="stylesheet">
 
     <!-- Add custom CSS here -->
-    <link href="<%=request.getContextPath()%>/resources/css/site.css" rel="stylesheet">
-    <link href="<%=request.getContextPath()%>/resources/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/resources/styles/site.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/resources/styles/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- favorite icon -->
     <link rel="shortcut icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/img/favicon.ico" />
@@ -47,6 +47,7 @@
     <script src="<%=request.getContextPath()%>/resources/scripts/controllers/LinkController.js"></script>
     <script src="<%=request.getContextPath()%>/resources/scripts/controllers/ProjectController.js"></script>
     <script src="<%=request.getContextPath()%>/resources/scripts/controllers/SkillController.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/scripts/controllers/SideMenuController.js"></script>
     <!-- Angular Filters -->
     <script src="<%=request.getContextPath()%>/resources/scripts/filters/StartFrom.js"></script>
     <!-- Angular Services -->
@@ -63,7 +64,7 @@
 <body>
 
 <!-- Side Menu -->
-<%@include file="/WEB-INF/fragments/sideMenu.jsp" %>
+<div ng-include="'<%=request.getContextPath()%>/resources/views/sideMenu.html'"></div>
 <!-- /Side Menu -->
 
 <!-- Full Page Image Header Area -->
@@ -108,22 +109,6 @@
 <!-- Footer -->
 <div ng-include="'<%=request.getContextPath()%>/resources/views/globalFooter.html'"></div>
 <!-- /Footer -->
-
-
-<!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
-<script>
-    $("#menu-close").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-</script>
-<script>
-    $("#menu-toggle").click(function(e) {
-        console.log("Toggled");
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-</script>
 
 <!-- Google Analytics -->
 <script type="text/javascript">
